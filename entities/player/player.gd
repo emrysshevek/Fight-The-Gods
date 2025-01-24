@@ -1,7 +1,7 @@
 class_name Player
 extends Entity
 
-@export var dash_speed := 1000.0
+@export var dash_speed := 1000.0 
 
 @onready var i_timer: Timer = $InvincibilityTimer
 

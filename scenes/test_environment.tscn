@@ -1,17 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmnimsdphhxa4"]
 
-[ext_resource type="PackedScene" uid="uid://cfi6464nlkxav" path="res://entities/player/player.tscn" id="1_un2jg"]
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="2_bqa4f"]
 [ext_resource type="PackedScene" uid="uid://cbtddcml1wuo5" path="res://components/environment/platform.tscn" id="3_p7qw3"]
 [ext_resource type="PackedScene" uid="uid://da2o4n025isx" path="res://entities/enemy/boss2/boss2.tscn" id="4_r868n"]
+[ext_resource type="PackedScene" uid="uid://cfi6464nlkxav" path="res://entities/player/player.tscn" id="4_wlecl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
 size = Vector2(1931, 73)
 
 [node name="TestEnvironment" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_un2jg")]
-position = Vector2(963, 894)
 
 [node name="Floor" parent="." instance=ExtResource("2_bqa4f")]
 position = Vector2(1, 1040)
@@ -32,6 +29,11 @@ position = Vector2(1249, 737)
 position = Vector2(376, 745)
 
 [node name="Enemy" parent="." instance=ExtResource("4_r868n")]
-position = Vector2(1330, 980)
+position = Vector2(1407, 732)
+
+[node name="Player" parent="." instance=ExtResource("4_wlecl")]
+position = Vector2(944, 995)
+max_speed = 500.0
+jump_velocity = 800.0
 
 [editable path="Floor"]
