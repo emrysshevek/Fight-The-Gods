@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2bjdi8a4xggh"]
+
+[ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="1_13qum"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrnll"]
+shader = ExtResource("1_13qum")
+shader_parameter/active = false
+
+[node name="HitFlash" type="ColorRect"]
+material = SubResource("ShaderMaterial_lrnll")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)

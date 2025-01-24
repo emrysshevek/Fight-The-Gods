@@ -17,10 +17,11 @@ func physics_update(delta: float) -> void:
 		player.gravity = player.get_gravity()
 	
 	var direction := Input.get_axis("left", "right")
-	if direction:
+	if direction != 0.0:
 		player.velocity.x = move_toward(player.velocity.x, direction * player.max_speed, player.air_acceleration * delta)
+		player.moving = true
 	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, player.air_friction * delta)
+		player.moving = false
 
 func handle_transition() -> void:
 	if player.is_on_floor():

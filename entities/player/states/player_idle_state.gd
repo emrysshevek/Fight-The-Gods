@@ -2,10 +2,10 @@ class_name PlayerIdleState
 extends PlayerState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
+	player.moving = false
 	player.grounded = true
 
-func physics_update(delta: float) -> void:
-	player.velocity.x = move_toward(player.velocity.x, 0, player.ground_friction * player.MOVE_SNAP * delta)
+func physics_update(_delta: float) -> void:
 	handle_transition()
 
 func handle_transition() -> void:

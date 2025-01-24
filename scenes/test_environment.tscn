@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmnimsdphhxa4"]
+[gd_scene load_steps=6 format=3 uid="uid://dmnimsdphhxa4"]
 
-[ext_resource type="PackedScene" uid="uid://hmwexv85a774" path="res://entities/player/player.tscn" id="1_un2jg"]
+[ext_resource type="PackedScene" uid="uid://cfi6464nlkxav" path="res://entities/player/player.tscn" id="1_un2jg"]
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="2_bqa4f"]
 [ext_resource type="PackedScene" uid="uid://cbtddcml1wuo5" path="res://components/environment/platform.tscn" id="3_p7qw3"]
+[ext_resource type="PackedScene" uid="uid://da2o4n025isx" path="res://entities/enemy/boss2/boss2.tscn" id="4_r868n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
 size = Vector2(1931, 73)
@@ -29,5 +30,8 @@ position = Vector2(1249, 737)
 
 [node name="Platform2" parent="." instance=ExtResource("3_p7qw3")]
 position = Vector2(376, 745)
+
+[node name="Enemy" parent="." instance=ExtResource("4_r868n")]
+position = Vector2(1330, 980)
 
 [editable path="Floor"]

@@ -9,6 +9,7 @@ var dir := 0.0
 var elapsed := 0.0
 
 func enter(_previous_state_path: String, _data := {}) -> void:
+    player.moving = false
     dir = Input.get_axis("left", "right")
     if dir == 0:
         dir = -1 if player.flipped else 1

@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgwvfontvx4ti"]
+[gd_scene load_steps=3 format=3 uid="uid://cgwvfontvx4ti"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_053ux"]
+[ext_resource type="PackedScene" uid="uid://dt5xi15ldp7hn" path="res://components/hitbox/hurtbox.tscn" id="2_6plsn"]
 
 [node name="Entity" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_053ux")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_6plsn")]
+
+[connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]

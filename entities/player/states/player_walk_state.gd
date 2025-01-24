@@ -3,6 +3,12 @@ extends PlayerState
 
 var direction := 0.0
 
+func enter(_previous_state_path: String, _data := {}) -> void:
+    player.moving = true
+
+func exit() -> void:
+    player.moving = false
+
 func physics_update(delta: float) -> void:
     direction = Input.get_axis("left", "right")
     if direction:
