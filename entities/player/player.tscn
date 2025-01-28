@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cfi6464nlkxav"]
+[gd_scene load_steps=33 format=3 uid="uid://cfi6464nlkxav"]
 
 [ext_resource type="PackedScene" uid="uid://cgwvfontvx4ti" path="res://entities/entity.tscn" id="1_56s1m"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_bjjw0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://entities/player/states/player_jump_state.gd" id="8_kwetc"]
 [ext_resource type="Script" path="res://entities/player/states/player_float_state.gd" id="9_n6imj"]
 [ext_resource type="Script" path="res://entities/player/states/player_dash_state.gd" id="11_naatf"]
+[ext_resource type="Script" path="res://entities/player/states/player_heavy_attack_state.gd" id="14_fw2ep"]
 [ext_resource type="Script" path="res://entities/player/states/player_simple_attack_state.gd" id="14_ylima"]
 [ext_resource type="Script" path="res://components/attacks/attack.gd" id="15_hrbc1"]
 [ext_resource type="Script" path="res://components/hitbox/hitbox.gd" id="16_3avla"]
@@ -104,6 +105,78 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HeavyAttack/Hitbox/CollisionShape2D:shape:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HeavyAttack/Hitbox/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HeavyAttack/Hitbox:monitoring")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HeavyAttack/Hitbox:monitorable")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SimpleAttack/Hitbox:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SimpleAttack/Hitbox:monitorable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_fin2q"]
@@ -407,6 +480,30 @@ tracks/6/keys = {
 "method": &"end"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SimpleAttack/Hitbox:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SimpleAttack/Hitbox:monitorable")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_61p4x"]
 resource_name = "heavy_attack"
@@ -447,6 +544,71 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -48)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeavyAttack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start"
+}, {
+"args": [],
+"method": &"end"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeavyAttack/Hitbox/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(36, 47.875), Vector2(58, 80), Vector2(71, 73), Vector2(91, 56), Vector2(91, 62), Vector2(70.5, 85), Vector2(70.5, 120), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HeavyAttack/Hitbox/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-28, -55.9375), Vector2(-17, -53), Vector2(-10.5, -38.5), Vector2(-0.5, -30), Vector2(34, -31), Vector2(44.25, -42.5), Vector2(42, -63), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HeavyAttack/Hitbox:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HeavyAttack/Hitbox:monitorable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_s1p4o"]
@@ -507,6 +669,9 @@ _data = {
 "simple_attack": SubResource("Animation_6743k"),
 "walk": SubResource("Animation_qa3se")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phkd0"]
+size = Vector2(0, 20)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_56s1m")]
 texture_filter = 3
@@ -575,6 +740,9 @@ script = ExtResource("5_1s3cc")
 [node name="SimpleAttack" type="Node" parent="StateMachine" index="8"]
 script = ExtResource("14_ylima")
 
+[node name="HeavyAttack" type="Node" parent="StateMachine" index="9"]
+script = ExtResource("14_fw2ep")
+
 [node name="SimpleAttack" type="Node2D" parent="." index="6"]
 script = ExtResource("15_hrbc1")
 damage = 10
@@ -583,12 +751,31 @@ active = true
 [node name="Hitbox" type="Area2D" parent="SimpleAttack" index="0"]
 collision_layer = 4
 collision_mask = 8
+monitoring = false
+monitorable = false
 script = ExtResource("16_3avla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SimpleAttack/Hitbox" index="0"]
 shape = SubResource("RectangleShape2D_wbls7")
 
+[node name="HeavyAttack" type="Node2D" parent="." index="7"]
+script = ExtResource("15_hrbc1")
+damage = 20
+
+[node name="Hitbox" type="Area2D" parent="HeavyAttack" index="0"]
+collision_layer = 4
+collision_mask = 8
+monitoring = false
+monitorable = false
+script = ExtResource("16_3avla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeavyAttack/Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_phkd0")
+
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="area_entered" from="SimpleAttack/Hitbox" to="SimpleAttack/Hitbox" method="_on_area_entered"]
 [connection signal="area_exited" from="SimpleAttack/Hitbox" to="SimpleAttack/Hitbox" method="_on_area_exited"]
 [connection signal="hit" from="SimpleAttack/Hitbox" to="SimpleAttack" method="_on_hit"]
+[connection signal="area_entered" from="HeavyAttack/Hitbox" to="HeavyAttack/Hitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="HeavyAttack/Hitbox" to="HeavyAttack/Hitbox" method="_on_area_exited"]
+[connection signal="hit" from="HeavyAttack/Hitbox" to="HeavyAttack" method="_on_hit"]
