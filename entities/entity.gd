@@ -27,7 +27,7 @@ var damageable = true
 @onready var gravity: Vector2 = get_gravity()
 @onready var health := max_health
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: EntitySprite = $AnimatedSprite2D
 @onready var ap: AnimationPlayer = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:

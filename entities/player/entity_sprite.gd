@@ -15,13 +15,17 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
 
+func flash(duration: float) -> void:
+	shader_mat.set_shader_parameter("active", true)
+	await get_tree().create_timer(duration).timeout
+	shader_mat.set_shader_parameter("active", false)
+
 func start_flash() -> void:
 	active = true
 	shader_mat.set_shader_parameter("active", active)
 	timer.start()
 	
 func end_flash() -> void:
-	print("ending flash")
 	active = false
 	shader_mat.set_shader_parameter("active", active)
 	timer.stop()
