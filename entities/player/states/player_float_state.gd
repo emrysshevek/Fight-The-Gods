@@ -4,7 +4,9 @@ extends PlayerState
 @export var fall_speed_influence = .1
 
 func enter(_previous_state_path: String, _data := {}) -> void:
+	player.moveable = true
 	player.grounded = false
+	player.ap.play("float")
 
 func physics_update(delta: float) -> void:
 	handle_transition()
@@ -15,13 +17,6 @@ func physics_update(delta: float) -> void:
 		player.gravity = player.get_gravity() * (1 + fall_speed_influence)
 	else:
 		player.gravity = player.get_gravity()
-	
-	var direction := Input.get_axis("left", "right")
-	if direction != 0.0:
-		player.velocity.x = move_toward(player.velocity.x, direction * player.max_speed, player.air_acceleration * delta)
-		player.moving = true
-	else:
-		player.moving = false
 
 func handle_transition() -> void:
 	if player.is_on_floor():

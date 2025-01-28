@@ -51,6 +51,7 @@ func take_damage(damage: float, _type=null) -> void:
 	
 	health -= damage
 	damaged.emit(self)
+	print(name, " took ", damage, " damage. Health is now at ", health)
 
 	if health <= 0:
 		health = 0
@@ -60,9 +61,6 @@ func die() -> void:
 	died.emit(self)
 	queue_free()
 
-func _on_hurtbox_hit(_which_hurtbox:Hurtbox, which_hitbox:Hitbox) -> void:\
+func _on_hurtbox_hit(_which_hurtbox:Hurtbox, _which_hitbox:Hitbox) -> void:\
 	if damageable:
-		hit.emit(self, which_hitbox.entity)
-
-
-
+		hit.emit(self)

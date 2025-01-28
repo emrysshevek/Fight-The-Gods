@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgwvfontvx4ti"]
+[gd_scene load_steps=7 format=3 uid="uid://cgwvfontvx4ti"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_053ux"]
+[ext_resource type="SpriteFrames" uid="uid://b3tjbvy36es75" path="res://entities/entity_sprite_frames.tres" id="2_1etj4"]
 [ext_resource type="PackedScene" uid="uid://dt5xi15ldp7hn" path="res://components/hitbox/hurtbox.tscn" id="2_6plsn"]
+[ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="2_22s3v"]
+[ext_resource type="Script" path="res://entities/player/entity_sprite.gd" id="3_iact4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gy6st"]
+shader = ExtResource("2_22s3v")
+shader_parameter/active = false
 
 [node name="Entity" type="CharacterBody2D"]
 collision_layer = 0
@@ -9,8 +16,11 @@ collision_mask = 0
 script = ExtResource("1_053ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+material = SubResource("ShaderMaterial_gy6st")
+sprite_frames = ExtResource("2_1etj4")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("3_iact4")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_6plsn")]
 

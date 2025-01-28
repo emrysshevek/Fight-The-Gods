@@ -1,9 +1,24 @@
 class_name PlayerJumpState
 extends PlayerState
 
-func enter(_previous_state_path: String, _data := {}) -> void:
-    player.grounded = false
+var in_jump: bool = false
 
-func physics_update(_delta: float) -> void:
-    player.velocity.y -= player.jump_velocity
+func enter(_previous_state_path: String, _data := {}) -> void:
+    player.moveable = true
+    player.grounded = false
+    player.ap.play("jump")
+    player.ap.animation_finished.connect(_on_animation_finished)
+    player.velocity.y = -player.jump_velocity
+    in_jump = true
+
+func exit() -> void:
+    in_jump = false
+    player.ap.animation_finished.disconnect(_on_animation_finished)
+
+# func physics_update(_delta: float) -> void:
+#     if player.ap.current_animation_position >= player.ap.current_animation_length / 2:
+#         finished.emit(FLOAT)
+
+func _on_animation_finished(anim_name: StringName) -> void:
+    assert(str(anim_name) == "jump", "Incorrect animation [" + str(anim_name) + "] playing during jump state. Expected " + "jump" )
     finished.emit(FLOAT)

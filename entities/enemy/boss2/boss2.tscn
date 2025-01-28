@@ -136,11 +136,11 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_od46u"]
-size = Vector2(66, 145)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4f6b"]
 size = Vector2(94, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od46u"]
+size = Vector2(66, 145)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huxld"]
 size = Vector2(76, 142)
@@ -157,14 +157,14 @@ frame = 5
 frame_progress = 0.40002
 offset = Vector2(0, -86.46)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-position = Vector2(-12, -72.5)
-shape = SubResource("RectangleShape2D_od46u")
-metadata/_edit_lock_ = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(-14, -72.5)
 shape = SubResource("RectangleShape2D_w4f6b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(-12, -72.5)
+shape = SubResource("RectangleShape2D_od46u")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactHitbox" index="0"]

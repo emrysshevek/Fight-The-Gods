@@ -8,9 +8,9 @@ const JUMP := "Jump"
 const CROUCH := "Crouch"
 const LAND := "Land"
 const FLOAT := "Float"
-const ATTACK := "Attack"
+const SIMPLE_ATTACK := "SimpleAttack"
+const HEAVY_ATTACK := "HeavyAttack"
 const HIT := "Hit"
-
 
 var player: Player
 

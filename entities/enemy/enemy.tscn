@@ -11,15 +11,12 @@ collision_mask = 3
 script = ExtResource("2_dleqq")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-animation = &""
-autoplay = "idle"
+animation = &"jump"
 
-[node name="Hurtbox" parent="." index="2"]
+[node name="Hurtbox" parent="." index="1"]
 collision_layer = 8
 collision_mask = 4
 
-[node name="ContactHitbox" parent="." index="3" instance=ExtResource("263_nkyft")]
+[node name="ContactHitbox" parent="." index="2" instance=ExtResource("263_nkyft")]
 collision_layer = 8
 collision_mask = 4
-
-[connection signal="hit" from="ContactHitbox" to="." method="_on_contact_hitbox_hit"]

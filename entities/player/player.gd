@@ -1,11 +1,14 @@
 class_name Player
 extends Entity
 
-@export var dash_speed := 1000.0 
+@export var dash_speed := 1000.0
+
+var moveable: bool = true
 
 @onready var i_timer: Timer = $InvincibilityTimer
 
 func _physics_process(delta: float) -> void:
+	handle_player_movement(delta)
 	super._physics_process(delta)
 
 	if (
@@ -13,6 +16,18 @@ func _physics_process(delta: float) -> void:
 		or flipped and Input.is_action_just_pressed("right")
 	):
 		flip()
+
+func handle_player_movement(delta: float) -> void:
+	moving = true
+	var direction := Input.get_axis("left", "right")
+	if direction == 0.0:
+		moving = false
+
+	if moving:
+		if not is_on_floor():
+			velocity.x = move_toward(velocity.x, direction * max_speed, air_acceleration * delta)
+		else:
+			velocity.x = move_toward(velocity.x, direction * max_speed, ground_acceleration * MOVE_SNAP * delta)
 
 func flip() -> void:
 	transform *= Transform2D.FLIP_X;
