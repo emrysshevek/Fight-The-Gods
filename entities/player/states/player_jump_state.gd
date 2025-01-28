@@ -15,9 +15,9 @@ func exit() -> void:
     in_jump = false
     player.ap.animation_finished.disconnect(_on_animation_finished)
 
-# func physics_update(_delta: float) -> void:
-#     if player.ap.current_animation_position >= player.ap.current_animation_length / 2:
-#         finished.emit(FLOAT)
+func physics_update(_delta: float) -> void:
+    if player.is_on_floor():
+        finished.emit(LAND)
 
 func _on_animation_finished(anim_name: StringName) -> void:
     assert(str(anim_name) == "jump", "Incorrect animation [" + str(anim_name) + "] playing during jump state. Expected " + "jump" )

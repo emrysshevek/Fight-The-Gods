@@ -8,8 +8,11 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.grounded = false
 	player.ap.play("float")
 
-func physics_update(delta: float) -> void:
-	handle_transition()
+func physics_update(_delta: float) -> void:
+	handle_transition([
+		LAND,
+		DASH
+	])
 
 	if Input.is_action_pressed("jump"):
 		player.gravity =  player.get_gravity() * (1 - fall_speed_influence)
@@ -18,8 +21,3 @@ func physics_update(delta: float) -> void:
 	else:
 		player.gravity = player.get_gravity()
 
-func handle_transition() -> void:
-	if player.is_on_floor():
-		finished.emit(LAND)
-	elif Input.is_action_just_pressed("dash"):
-		finished.emit(DASH)

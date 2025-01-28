@@ -13,6 +13,13 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func physics_update(_delta: float) -> void:
     if not Input.is_action_pressed("crouch"):
         finished.emit(IDLE)
+    else:
+        handle_transition([
+            JUMP,
+            DASH,
+            SIMPLE_ATTACK,
+            HEAVY_ATTACK
+        ])
 
 func exit() -> void:
     player.ap.animation_finished.disconnect(_on_animation_finished)

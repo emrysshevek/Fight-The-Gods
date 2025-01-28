@@ -10,17 +10,13 @@ func exit() -> void:
     player.moving = false
 
 func physics_update(_delta: float) -> void:
-    handle_transition()
-
-func handle_transition() -> void:
     if not player.is_on_floor():
         finished.emit(FLOAT)
-    elif player.moving == false:
+        return
+
+    if !player.moving:
         finished.emit(IDLE)
-    elif Input.is_action_just_pressed("jump"):
-        finished.emit(JUMP)
-    elif Input.is_action_just_pressed("crouch"):
-        finished.emit(CROUCH)
-    elif Input.is_action_just_pressed("dash"):
-        finished.emit(DASH)
-    
+        return
+
+    if handle_transition([JUMP, CROUCH, DASH, SIMPLE_ATTACK, HEAVY_ATTACK]) == "":
+        return

@@ -29,20 +29,9 @@ func physics_update(delta: float) -> void:
     player.gravity = Vector2.ZERO
     elapsed += delta
 
-    # if elapsed >= total_duration:
-    #     handle_transition()
     if elapsed >= dash_duration:
         player.velocity.x = move_toward(player.velocity.x, player.max_speed * dir, deceleration * delta)
 
-
-func handle_transition() -> void:
-    if player.is_on_floor():
-        finished.emit(IDLE)
-    else:
-        finished.emit(FLOAT)
     
-func _on_animation_finished(anim_name: StringName) -> void:
-    if player.is_on_floor():
-        finished.emit(IDLE)
-    else:
-        finished.emit(FLOAT)
+func _on_animation_finished(_anim_name: StringName) -> void:
+    handle_transition([IDLE, FLOAT])
