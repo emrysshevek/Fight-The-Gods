@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw8cre84bhld8"]
+[gd_scene load_steps=3 format=3 uid="uid://dw8cre84bhld8"]
 
 [ext_resource type="PackedScene" uid="uid://cgwvfontvx4ti" path="res://entities/entity.tscn" id="1_qca65"]
 [ext_resource type="Script" path="res://entities/enemy/enemy.gd" id="2_dleqq"]
-[ext_resource type="PackedScene" uid="uid://cypgu73layxn5" path="res://components/hitbox/hitbox.tscn" id="263_nkyft"]
 
 [node name="Enemy" groups=["enemy", "entity"] instance=ExtResource("1_qca65")]
 texture_filter = 3
@@ -12,11 +11,8 @@ script = ExtResource("2_dleqq")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"jump"
+flash_duration = 0.25
 
 [node name="Hurtbox" parent="." index="1"]
-collision_layer = 8
-collision_mask = 4
-
-[node name="ContactHitbox" parent="." index="2" instance=ExtResource("263_nkyft")]
 collision_layer = 8
 collision_mask = 4

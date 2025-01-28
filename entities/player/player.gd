@@ -8,7 +8,8 @@ var moveable: bool = true
 @onready var i_timer: Timer = $InvincibilityTimer
 
 func _physics_process(delta: float) -> void:
-	handle_player_movement(delta)
+	if moveable:
+		handle_player_movement(delta)
 	super._physics_process(delta)
 
 	if (
