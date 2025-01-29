@@ -10,7 +10,6 @@ func _ready() -> void:
     timer.timeout.connect(_on_timer_timeout)
     add_child(timer)
 
-
 func enter(_previous_state_path: String, _data := {}) -> void:
     boss.ap.play("idle")
     timer.start()

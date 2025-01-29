@@ -30,10 +30,10 @@ position = Vector2(1110, 897)
 position = Vector2(497, 898)
 
 [node name="Enemy" parent="." instance=ExtResource("4_r868n")]
-position = Vector2(1250, 844)
+position = Vector2(1487, 971)
 
 [node name="Player" parent="." instance=ExtResource("4_wlecl")]
-position = Vector2(253, 973)
+position = Vector2(960, 540)
 jump_velocity = 800.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
