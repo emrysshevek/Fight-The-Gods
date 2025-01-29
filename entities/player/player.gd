@@ -31,10 +31,6 @@ func handle_player_movement(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, direction * max_speed, ground_acceleration * MOVE_SNAP * delta)
 
-func flip() -> void:
-	transform *= Transform2D.FLIP_X;
-	flipped = !flipped
-
 func take_damage(damage: float, _type=null) -> float:
 	print("Player taking damage: ", damage, ". remaining health: ", health)
 	damage = super.take_damage(1)

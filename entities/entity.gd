@@ -42,6 +42,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func flip() -> void:
+	transform *= Transform2D.FLIP_X;
+	flipped = !flipped
+
 func try_hit() -> bool:
 	if damageable:
 		return true
