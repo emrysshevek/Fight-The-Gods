@@ -34,11 +34,12 @@ func flip() -> void:
 	transform *= Transform2D.FLIP_X;
 	flipped = !flipped
 
-func take_damage(damage: float, _type=null) -> void:
+func take_damage(damage: float, _type=null) -> float:
 	print("Player taking damage: ", damage, ". remaining health: ", health)
+	damage = super.take_damage(1)
 	if damage > 0:
 		start_hit_cooldown()
-		super.take_damage(1)
+	return damage
 
 func start_hit_cooldown() -> void:
 	damageable = false

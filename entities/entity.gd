@@ -28,13 +28,15 @@ var damageable = true
 @onready var health := max_health
 
 @onready var sprite: EntitySprite = $AnimatedSprite2D
-@onready var ap: AnimationPlayer = $AnimationPlayer
+@onready var ap: AnimationPlayer = get_node_or_null("AnimationPlayer")
 
 func _physics_process(delta: float) -> void:
+	# print(name, " velocity: ", velocity)
 	if not is_on_floor():
-		velocity.y = move_toward(velocity.y, max_fall_speed, gravity.y * delta)
+		velocity.y = move_toward(velocity.y, max_fall_speed, gravity.y * delta * MOVE_SNAP)
 		if not moving:
 			velocity.x = move_toward(velocity.x, 0, air_friction * delta)
+		print(name, " is being affected by gravity: ", velocity)
 	elif not moving:
 		velocity.x = move_toward(velocity.x, 0, ground_friction * MOVE_SNAP * delta)
 
@@ -45,9 +47,9 @@ func try_hit() -> bool:
 		return true
 	return false
 
-func take_damage(damage: float, _type=null) -> void:
+func take_damage(damage: float, _type=null) -> float:
 	if damage <= 0:
-		return
+		return 0
 	
 	health -= damage
 	damaged.emit(self)
@@ -56,6 +58,8 @@ func take_damage(damage: float, _type=null) -> void:
 	if health <= 0:
 		health = 0
 		die()
+
+	return damage
 
 func die() -> void:
 	died.emit(self)

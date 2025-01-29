@@ -18,6 +18,9 @@ func exit() -> void:
 func physics_update(_delta: float) -> void:
     if player.is_on_floor():
         finished.emit(LAND)
+        return
+
+    handle_transition([DASH])
 
 func _on_animation_finished(anim_name: StringName) -> void:
     assert(str(anim_name) == "jump", "Incorrect animation [" + str(anim_name) + "] playing during jump state. Expected " + "jump" )

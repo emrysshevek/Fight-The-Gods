@@ -716,6 +716,9 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_bjjw0")
 dash_speed = 1000.0
+max_speed = 250.0
+ground_acceleration = 1500.0
+ground_friction = 1000.0
 jump_velocity = 700.0
 max_health = 3.0
 
@@ -797,7 +800,7 @@ shape = SubResource("RectangleShape2D_wbls7")
 
 [node name="HeavyAttack" type="Node2D" parent="." index="7"]
 script = ExtResource("15_hrbc1")
-damage = 20
+damage = 40
 
 [node name="Hitbox" type="Area2D" parent="HeavyAttack" index="0"]
 collision_layer = 4

@@ -24,18 +24,26 @@ position = Vector2(955.5, 38.5)
 shape = SubResource("RectangleShape2D_mgnj2")
 
 [node name="Platform" parent="." instance=ExtResource("3_p7qw3")]
-position = Vector2(1249, 737)
+position = Vector2(1110, 897)
 
 [node name="Platform2" parent="." instance=ExtResource("3_p7qw3")]
-position = Vector2(376, 745)
+position = Vector2(497, 898)
 
 [node name="Enemy" parent="." instance=ExtResource("4_r868n")]
-position = Vector2(1407, 732)
+position = Vector2(1250, 844)
 
 [node name="Player" parent="." instance=ExtResource("4_wlecl")]
-position = Vector2(944, 995)
-max_speed = 500.0
+position = Vector2(253, 973)
 jump_velocity = 800.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

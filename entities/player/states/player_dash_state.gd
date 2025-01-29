@@ -30,8 +30,7 @@ func physics_update(delta: float) -> void:
     elapsed += delta
 
     if elapsed >= dash_duration:
-        player.velocity.x = move_toward(player.velocity.x, player.max_speed * dir, deceleration * delta)
-
+        player.velocity.x = move_toward(player.velocity.x, player.max_speed * dir / 2, deceleration * delta)
     
 func _on_animation_finished(_anim_name: StringName) -> void:
     handle_transition([IDLE, FLOAT])
