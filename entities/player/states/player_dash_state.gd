@@ -11,6 +11,8 @@ var elapsed := 0.0
 func enter(_previous_state_path: String, _data := {}) -> void:
     player.moveable = false
     player.moving = false
+    player.damageable = false
+
     dir = Input.get_axis("left", "right")
     if dir == 0:
         dir = -1 if player.flipped else 1
@@ -22,6 +24,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
     player.ap.animation_finished.connect(_on_animation_finished)
 
 func exit() -> void:
+    player.damageable = true
     player.gravity = player.get_gravity()
     player.ap.animation_finished.disconnect(_on_animation_finished)
 
