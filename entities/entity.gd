@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, max_fall_speed, gravity.y * delta * MOVE_SNAP)
 		if not moving:
 			velocity.x = move_toward(velocity.x, 0, air_friction * delta)
-		print(name, " is being affected by gravity: ", velocity)
 	elif not moving:
 		velocity.x = move_toward(velocity.x, 0, ground_friction * MOVE_SNAP * delta)
 

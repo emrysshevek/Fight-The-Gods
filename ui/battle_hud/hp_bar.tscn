@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8bqfo7mlqunf"]
 
 [ext_resource type="Script" path="res://ui/battle_hud/hp_bar.gd" id="1_pa6m3"]
-[ext_resource type="Texture2D" uid="uid://csexkm7flldug" path="res://assets/heart.png" id="2_m6f80"]
+[ext_resource type="Texture2D" uid="uid://csexkm7flldug" path="res://assets/graphics/heart.png" id="2_m6f80"]
 
 [node name="HpBar" type="HBoxContainer"]
 offset_right = 64.0

@@ -1,7 +1,7 @@
 class_name PlayerFloatState
 extends PlayerState
 
-@export var fall_speed_influence = .1
+@export var fall_speed_influence = .5
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	player.moveable = true

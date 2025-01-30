@@ -15,7 +15,7 @@ func _on_scene_ready() -> void:
 
 func add_health() -> void:
 	var t_rect = TextureRect.new()
-	t_rect.texture = preload("res://assets/heart.png")
+	t_rect.texture = preload("res://assets/graphics/heart.png")
 	add_child(t_rect)
 
 func _on_player_damaged(player: Player) -> void:

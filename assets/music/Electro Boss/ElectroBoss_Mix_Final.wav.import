@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfapw4s8c3l45"
+path="res://.godot/imported/ElectroBoss_Mix_Final.wav-09814de8bc5fd96cff4bdfdb234d004e.sample"
+
+[deps]
+
+source_file="res://assets/music/Electro Boss/ElectroBoss_Mix_Final.wav"
+dest_files=["res://.godot/imported/ElectroBoss_Mix_Final.wav-09814de8bc5fd96cff4bdfdb234d004e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

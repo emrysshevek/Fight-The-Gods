@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmnimsdphhxa4"]
+[gd_scene load_steps=8 format=3 uid="uid://dmnimsdphhxa4"]
 
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="2_bqa4f"]
 [ext_resource type="PackedScene" uid="uid://cbtddcml1wuo5" path="res://components/environment/platform.tscn" id="3_p7qw3"]
 [ext_resource type="PackedScene" uid="uid://da2o4n025isx" path="res://entities/enemy/boss2/boss2.tscn" id="4_r868n"]
 [ext_resource type="PackedScene" uid="uid://cfi6464nlkxav" path="res://entities/player/player.tscn" id="4_wlecl"]
 [ext_resource type="PackedScene" uid="uid://b2g1fvmqhnxrj" path="res://ui/battle_hud/battle_hud.tscn" id="5_q871g"]
+[ext_resource type="PackedScene" uid="uid://vdjurcqrytv6" path="res://components/camera/camera.tscn" id="6_jt5wb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
 size = Vector2(1931, 73)
@@ -40,7 +41,7 @@ position = Vector2(960, 540)
 jump_velocity = 800.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+remote_path = NodePath("../../Camera")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -57,14 +58,16 @@ position = Vector2(960, 992)
 [node name="Right" type="Node2D" parent="Markers"]
 position = Vector2(1752, 956)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" parent="." instance=ExtResource("6_jt5wb")]
 position = Vector2(960, 540)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.75, 1.75)
 limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
-limit_smoothed = true
 position_smoothing_enabled = true
+decay = 0.8
+max_offset = Vector2(100, 75)
+max_roll = 0.1
 
 [editable path="Floor"]

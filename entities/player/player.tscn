@@ -720,6 +720,7 @@ max_speed = 250.0
 ground_acceleration = 1500.0
 ground_friction = 1000.0
 jump_velocity = 700.0
+max_fall_speed = 5000.0
 air_acceleration = 1200.0
 max_health = 3.0
 

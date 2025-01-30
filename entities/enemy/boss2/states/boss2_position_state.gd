@@ -52,6 +52,9 @@ func _switch_action() -> void:
         timer.start()
     else:
         action = "attack"
+        boss.ap.play("idle")
+        boss.ap.speed_scale = 1
+        await get_tree().create_timer(.5).timeout
         boss.ap.play("simple_attack")
         boss.ap.speed_scale = 1.25
         direction = sign(get_tree().get_first_node_in_group("player").global_position.x - boss.global_position.x)

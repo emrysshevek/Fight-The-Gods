@@ -29,6 +29,7 @@ func exit() -> void:
 
 func _on_animation_finished(_name: StringName) -> void:
     print("animation finished: ", _name)
+    boss.ap.speed_scale = 1
     count += 1
     if count >= max_reps:
         finished.emit(IDLE)
@@ -38,6 +39,7 @@ func _on_animation_finished(_name: StringName) -> void:
     timer.start()
 
 func _on_timer_timeout() -> void:
+    boss.ap.speed_scale = 1.25
     boss.ap.play("heavy_attack")
     if count % 2 == 0:
         boss.ap.queue("heavy_attack")

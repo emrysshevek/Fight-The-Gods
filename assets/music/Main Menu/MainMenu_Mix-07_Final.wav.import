@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bjof86mimb4pn"
+path="res://.godot/imported/MainMenu_Mix-07_Final.wav-7ac583713f077d5f13132b6d5b71e544.sample"
+
+[deps]
+
+source_file="res://assets/music/Main Menu/MainMenu_Mix-07_Final.wav"
+dest_files=["res://.godot/imported/MainMenu_Mix-07_Final.wav-7ac583713f077d5f13132b6d5b71e544.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
