@@ -15,9 +15,9 @@ func physics_update(_delta: float) -> void:
 	])
 
 	if Input.is_action_pressed("jump"):
-		player.gravity =  player.get_gravity() * (1 - fall_speed_influence)
+		player.gravity =  player.get_gravity() * .5
 	elif Input.is_action_pressed("crouch"):
-		player.gravity = player.get_gravity() * (1 + fall_speed_influence)
+		player.gravity = player.get_gravity() * 2
 	else:
 		player.gravity = player.get_gravity()
 

@@ -893,6 +893,20 @@ tracks/7/keys = {
 "update": 1,
 "values": [Vector2(0, 0), Vector2(31, -177), Vector2(56, -168), Vector2(80, -152), Vector2(96, -136), Vector2(91.3182, -120), Vector2(96, -96), Vector2(96, -72), Vector2(96, -48), Vector2(88, -32), Vector2(90.3409, -65.1364), Vector2(0, 0)]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_slam"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gqnpb"]
 resource_name = "idle"
@@ -1178,6 +1192,23 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, -48)]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.425, 0.925),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_step"
+}, {
+"args": [],
+"method": &"_on_step"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d6g7j"]
 _data = {
@@ -1196,13 +1227,19 @@ size = Vector2(82, 98)
 
 [node name="Boss2" instance=ExtResource("1_aipxn")]
 script = ExtResource("2_518wb")
-max_speed = 150.0
+max_speed = 275.0
 ground_acceleration = 1500.0
 ground_friction = 1000.0
 max_health = 500.0
 i_duration = 0.1
 
-[node name="AnimatedSprite2D" parent="." index="0" groups=["enemy", "entity"]]
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+offset_left = -40.0
+offset_top = -144.0
+offset_right = 40.0
+color = Color(0, 0, 0, 0.498039)
+
+[node name="AnimatedSprite2D" parent="." index="1" groups=["enemy", "entity"]]
 texture_filter = 3
 material = SubResource("ShaderMaterial_gyp3e")
 sprite_frames = SubResource("SpriteFrames_4st1n")
@@ -1215,18 +1252,18 @@ metadata/_edit_lock_ = true
 position = Vector2(4, -72)
 shape = SubResource("RectangleShape2D_w4f6b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_od46u")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_d6g7j")
 }
 autoplay = "idle"
 
-[node name="SimpleAttack" type="Node2D" parent="." index="4"]
+[node name="SimpleAttack" type="Node2D" parent="." index="5"]
 script = ExtResource("58_6i44f")
 
 [node name="Hitbox" type="Area2D" parent="SimpleAttack" index="0"]
@@ -1240,7 +1277,7 @@ script = ExtResource("59_3fhd4")
 position = Vector2(90, -97.5)
 shape = SubResource("RectangleShape2D_qb1t1")
 
-[node name="WaveAttack" type="Node2D" parent="." index="5"]
+[node name="WaveAttack" type="Node2D" parent="." index="6"]
 script = ExtResource("58_6i44f")
 
 [node name="Hitbox" type="Area2D" parent="WaveAttack" index="0"]
@@ -1254,7 +1291,7 @@ script = ExtResource("59_3fhd4")
 position = Vector2(31, -177)
 shape = SubResource("RectangleShape2D_181xv")
 
-[node name="StateMachine" type="Node" parent="." index="6"]
+[node name="StateMachine" type="Node" parent="." index="7"]
 script = ExtResource("60_qw1o1")
 
 [node name="Init" type="Node" parent="StateMachine" index="0"]

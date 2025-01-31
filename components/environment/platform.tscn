@@ -1,10 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbtddcml1wuo5"]
+[gd_scene load_steps=2 format=3 uid="uid://cbtddcml1wuo5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1i8c6"]
 rough = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfr2l"]
-size = Vector2(301, 22)
 
 [node name="Platform" type="StaticBody2D"]
 collision_layer = 2
@@ -12,11 +9,7 @@ collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_1i8c6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 305.0
 offset_bottom = 23.0
 color = Color(0.687215, 0.687215, 0.687215, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(153.5, 11)
-shape = SubResource("RectangleShape2D_kfr2l")
-one_way_collision = true
