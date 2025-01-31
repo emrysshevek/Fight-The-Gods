@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://docx32f0sdv61"]
+
+[ext_resource type="PackedScene" uid="uid://p7qadeabgdjx" path="res://components/environment/decoration.tscn" id="1_m4ht3"]
+[ext_resource type="Texture2D" uid="uid://b1h5iwvhvdg5y" path="res://assets/graphics/House decorations/Drawer - Decorations.png" id="2_veqxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb0mq"]
+size = Vector2(32, 15)
+
+[node name="Candles" instance=ExtResource("1_m4ht3")]
+texture_filter = 3
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_veqxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_xb0mq")
