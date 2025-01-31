@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://8bqfo7mlqunf"]
+[gd_scene load_steps=3 format=3 uid="uid://8bqfo7mlqunf"]
 
 [ext_resource type="Script" path="res://ui/battle_hud/hp_bar.gd" id="1_pa6m3"]
+[ext_resource type="Texture2D" uid="uid://crbb4h0g03jlr" path="res://assets/graphics/Health bar/Health bar_Heart.png" id="2_0x4d1"]
 
 [node name="HpBar" type="HBoxContainer"]
 texture_filter = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 10
 script = ExtResource("1_pa6m3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_0x4d1")
+stretch_mode = 2

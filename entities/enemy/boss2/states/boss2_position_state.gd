@@ -15,7 +15,7 @@ func _ready() -> void:
 	add_child(timer)
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	var targets: Array[Node2D] = [boss.left_target, boss.middle_target, boss.right_target]
+	var targets: Array[Node2D] = [boss.left_target, boss.right_target]
 	targets.erase(target)
 	target = targets.pick_random()
 	target_position = target.global_position
