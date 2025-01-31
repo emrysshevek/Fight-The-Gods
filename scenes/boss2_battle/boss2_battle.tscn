@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpud61ltdmdtn"]
+[gd_scene load_steps=25 format=3 uid="uid://bpud61ltdmdtn"]
 
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="1_7e5nu"]
 [ext_resource type="Script" path="res://scenes/boss2_battle/boss_2_battle.gd" id="1_rp7ue"]
@@ -7,7 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://bqg57gxxa6d1t" path="res://assets/graphics/House bg.png" id="3_uw7fr"]
 [ext_resource type="PackedScene" uid="uid://dwgeiid47ottn" path="res://entities/player/player.tscn" id="4_hanpa"]
 [ext_resource type="PackedScene" uid="uid://b2g1fvmqhnxrj" path="res://ui/battle_hud/battle_hud.tscn" id="5_cekgb"]
+[ext_resource type="PackedScene" uid="uid://b76uywxqhbtuo" path="res://scenes/boss2_battle/objects/shelf.tscn" id="9_vaqu8"]
+[ext_resource type="PackedScene" uid="uid://c1efpojswvpk2" path="res://scenes/boss2_battle/objects/barrel_table.tscn" id="10_a3cq5"]
+[ext_resource type="PackedScene" uid="uid://dc03c108pomqt" path="res://scenes/boss2_battle/objects/table.tscn" id="10_onux7"]
 [ext_resource type="Script" path="res://components/camera/camera.gd" id="10_wurlg"]
+[ext_resource type="PackedScene" uid="uid://do1ila3a5h5np" path="res://scenes/boss2_battle/objects/drawer.tscn" id="11_4rxsq"]
+[ext_resource type="PackedScene" uid="uid://oal0g30x17sh" path="res://scenes/boss2_battle/objects/chair.tscn" id="12_pvf2y"]
+[ext_resource type="PackedScene" uid="uid://dwb3emca17m7k" path="res://scenes/boss2_battle/objects/chimney_table.tscn" id="13_hwf8p"]
+[ext_resource type="PackedScene" uid="uid://bfw1vmvk2kjrr" path="res://scenes/boss2_battle/objects/logs.tscn" id="14_4qy4n"]
+[ext_resource type="PackedScene" uid="uid://bpt0fgnth41va" path="res://scenes/boss2_battle/objects/barrel.tscn" id="16_rikcf"]
+[ext_resource type="PackedScene" uid="uid://docx32f0sdv61" path="res://scenes/boss2_battle/decorations/drawer_decoration.tscn" id="18_rn6wx"]
+[ext_resource type="PackedScene" uid="uid://b62wmya035bh" path="res://scenes/boss2_battle/decorations/mini_shelf_decoration.tscn" id="19_7mqqy"]
+[ext_resource type="PackedScene" uid="uid://dtxv5h2cmouss" path="res://scenes/boss2_battle/decorations/pitcher.tscn" id="20_soelj"]
+[ext_resource type="PackedScene" uid="uid://bxwh5aiduvke" path="res://scenes/boss2_battle/decorations/plate.tscn" id="21_wvfa4"]
+[ext_resource type="PackedScene" uid="uid://dqmlmiuueidla" path="res://scenes/boss2_battle/decorations/table_candles.tscn" id="22_3kh7e"]
+[ext_resource type="PackedScene" uid="uid://bpgmteupokmud" path="res://scenes/boss2_battle/decorations/window_decorations.tscn" id="23_qyio3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
 size = Vector2(614.75, 73)
@@ -27,7 +41,7 @@ follow_viewport_enabled = true
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBackgroundLayer"]
 scroll_scale = Vector2(0.85, 0.85)
 repeat_size = Vector2(0, 956)
-autoscroll = Vector2(0, -500)
+autoscroll = Vector2(0, -750)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackgroundLayer/Parallax2D"]
 texture_repeat = 2
@@ -36,7 +50,7 @@ texture = ExtResource("2_bgpbj")
 [node name="world" type="Node2D" parent="."]
 
 [node name="Floor" parent="world" instance=ExtResource("1_7e5nu")]
-position = Vector2(4.50003, 166.75)
+position = Vector2(4.50003, 170)
 
 [node name="ColorRect" parent="world/Floor" index="0"]
 visible = false
@@ -49,7 +63,7 @@ shape = SubResource("RectangleShape2D_mgnj2")
 metadata/_edit_lock_ = true
 
 [node name="Floor2" parent="world" instance=ExtResource("1_7e5nu")]
-position = Vector2(-3.11225e-05, -178)
+position = Vector2(-3.13848e-05, -184)
 
 [node name="ColorRect" parent="world/Floor2" index="0"]
 visible = false
@@ -81,6 +95,7 @@ texture = ExtResource("3_uw7fr")
 metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("left_target", "middle_target", "right_target") instance=ExtResource("3_pbty1")]
+visible = false
 position = Vector2(132.25, 121)
 left_target = NodePath("../Markers/Left")
 middle_target = NodePath("../Markers/Middle")
@@ -89,15 +104,13 @@ right_target = NodePath("../Markers/Right")
 [node name="Markers" type="Node2D" parent="."]
 
 [node name="Left" type="Node2D" parent="Markers"]
-position = Vector2(-138, 100.75)
+position = Vector2(-130, 101)
 
 [node name="Middle" type="Node2D" parent="Markers"]
 position = Vector2(3.75, 87.25)
 
 [node name="Right" type="Node2D" parent="Markers"]
-position = Vector2(129, 99.5)
-
-[node name="SpinTimer" type="Timer" parent="."]
+position = Vector2(119, 99.5)
 
 [node name="Player" parent="." instance=ExtResource("4_hanpa")]
 position = Vector2(-106.25, 67.75)
@@ -112,6 +125,32 @@ visible = false
 
 [node name="Decorations" type="Node2D" parent="."]
 
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="BarrelTable" parent="Objects" instance=ExtResource("10_a3cq5")]
+position = Vector2(-121, 73)
+
+[node name="Table" parent="Objects" instance=ExtResource("10_onux7")]
+position = Vector2(-30, 86)
+
+[node name="Shelf" parent="Objects" instance=ExtResource("9_vaqu8")]
+position = Vector2(134, 19)
+
+[node name="Chair" parent="Objects" instance=ExtResource("12_pvf2y")]
+position = Vector2(72, 71)
+
+[node name="Drawer" parent="Objects" instance=ExtResource("11_4rxsq")]
+position = Vector2(189, 82)
+
+[node name="Logs" parent="Objects" instance=ExtResource("14_4qy4n")]
+position = Vector2(-174, 75)
+
+[node name="ChimneyTable" parent="Objects" instance=ExtResource("13_hwf8p")]
+position = Vector2(-168, 120)
+
+[node name="Barrel" parent="Objects" instance=ExtResource("16_rikcf")]
+position = Vector2(-119, 40)
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 90)
 script = ExtResource("10_wurlg")
@@ -123,6 +162,24 @@ position = Vector2(1, 20)
 
 [node name="vertical" type="Marker2D" parent="CameraPositions"]
 position = Vector2(0, 90)
+
+[node name="DrawerDecoration" parent="." instance=ExtResource("18_rn6wx")]
+position = Vector2(184, 38)
+
+[node name="MiniShelfDecoration" parent="." instance=ExtResource("19_7mqqy")]
+position = Vector2(178, -39)
+
+[node name="Pitcher" parent="." instance=ExtResource("20_soelj")]
+position = Vector2(13, 47)
+
+[node name="Plate" parent="." instance=ExtResource("21_wvfa4")]
+position = Vector2(-28, 56)
+
+[node name="TableCandles" parent="." instance=ExtResource("22_3kh7e")]
+position = Vector2(-61, 42)
+
+[node name="WindowDecorations" parent="." instance=ExtResource("23_qyio3")]
+position = Vector2(0, 14)
 
 [editable path="world/Floor"]
 [editable path="world/Floor2"]

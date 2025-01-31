@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtxv5h2cmouss"]
+
+[ext_resource type="PackedScene" uid="uid://p7qadeabgdjx" path="res://components/environment/decoration.tscn" id="1_5owep"]
+[ext_resource type="Texture2D" uid="uid://b0p4ld8dsawh" path="res://assets/graphics/House decorations/Table - Pitcher.png" id="2_fbpk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plklo"]
+size = Vector2(15, 22)
+
+[node name="Pitcher" instance=ExtResource("1_5owep")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_fbpk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_plklo")

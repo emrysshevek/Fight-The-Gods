@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://do1ila3a5h5np"]
+
+[ext_resource type="PackedScene" uid="uid://bhi0b8c2jmi1d" path="res://components/environment/object.tscn" id="1_ac24x"]
+[ext_resource type="Texture2D" uid="uid://bxk2hxef3wt2y" path="res://assets/graphics/House decorations/Drawer.png" id="2_ox03o"]
+
+[node name="Drawer" instance=ExtResource("1_ac24x")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ox03o")
+
+[node name="Marker2D" parent="VertexMarkers" index="0"]
+position = Vector2(-26, -27)
+
+[node name="Marker2D2" type="Marker2D" parent="VertexMarkers" index="1"]
+position = Vector2(28, -27)
+
+[node name="Marker2D3" type="Marker2D" parent="VertexMarkers" index="2"]
+position = Vector2(28, 24)
+
+[node name="Marker2D4" type="Marker2D" parent="VertexMarkers" index="3"]
+position = Vector2(-26, 24)

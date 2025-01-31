@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfw1vmvk2kjrr"]
+
+[ext_resource type="PackedScene" uid="uid://bhi0b8c2jmi1d" path="res://components/environment/object.tscn" id="1_qxyn8"]
+[ext_resource type="Texture2D" uid="uid://r2k6bhtqcgv" path="res://assets/graphics/House decorations/Chimney - Logs.png" id="2_7r1ns"]
+
+[node name="Logs" instance=ExtResource("1_qxyn8")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7r1ns")
+
+[node name="Marker2D" parent="VertexMarkers" index="0"]
+position = Vector2(-15, -16)
+
+[node name="Marker2D2" type="Marker2D" parent="VertexMarkers" index="1"]
+position = Vector2(5, -13)
+
+[node name="Marker2D3" type="Marker2D" parent="VertexMarkers" index="2"]
+position = Vector2(12, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="VertexMarkers" index="3"]
+position = Vector2(18, 8)
+
+[node name="Marker2D5" type="Marker2D" parent="VertexMarkers" index="4"]
+position = Vector2(1, 18)
+
+[node name="Marker2D6" type="Marker2D" parent="VertexMarkers" index="5"]
+position = Vector2(-16, 18)
+
+[node name="Marker2D7" type="Marker2D" parent="VertexMarkers" index="6"]
+position = Vector2(-18, 0)

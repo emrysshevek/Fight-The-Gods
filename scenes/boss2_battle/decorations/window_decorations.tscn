@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpgmteupokmud"]
+
+[ext_resource type="PackedScene" uid="uid://p7qadeabgdjx" path="res://components/environment/decoration.tscn" id="1_5a7wr"]
+[ext_resource type="Texture2D" uid="uid://dbetj7o8csam8" path="res://assets/graphics/House decorations/Window - Decorations.png" id="2_yid5w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_61lff"]
+radius = 5.0
+height = 34.0
+
+[node name="WindowDecorations" instance=ExtResource("1_5a7wr")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_yid5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_61lff")

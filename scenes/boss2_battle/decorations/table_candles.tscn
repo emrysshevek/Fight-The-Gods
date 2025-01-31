@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqmlmiuueidla"]
+
+[ext_resource type="PackedScene" uid="uid://p7qadeabgdjx" path="res://components/environment/decoration.tscn" id="1_7pr7q"]
+[ext_resource type="Texture2D" uid="uid://d1emtre260ydl" path="res://assets/graphics/House decorations/Table - Candles.png" id="2_pv4nd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7snn5"]
+height = 26.0
+
+[node name="TableCandles" instance=ExtResource("1_7pr7q")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_pv4nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7snn5")

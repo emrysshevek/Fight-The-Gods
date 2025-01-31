@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://oal0g30x17sh"]
+
+[ext_resource type="PackedScene" uid="uid://bhi0b8c2jmi1d" path="res://components/environment/object.tscn" id="1_cjqi4"]
+[ext_resource type="Texture2D" uid="uid://cf5du2lbbkhy1" path="res://assets/graphics/House decorations/Chair.png" id="2_xtq8e"]
+
+[node name="Chair" instance=ExtResource("1_cjqi4")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_xtq8e")
+
+[node name="Marker2D" parent="VertexMarkers" index="0"]
+position = Vector2(-8, -37)
+
+[node name="Marker2D2" type="Marker2D" parent="VertexMarkers" index="1"]
+position = Vector2(28, -37)
+
+[node name="Marker2D3" type="Marker2D" parent="VertexMarkers" index="2"]
+position = Vector2(28, 26)
+
+[node name="Marker2D4" type="Marker2D" parent="VertexMarkers" index="3"]
+position = Vector2(10, 37)
+
+[node name="Marker2D5" type="Marker2D" parent="VertexMarkers" index="4"]
+position = Vector2(-27, 33)
+
+[node name="Marker2D6" type="Marker2D" parent="VertexMarkers" index="5"]
+position = Vector2(-27, -10)
+
+[node name="Marker2D7" type="Marker2D" parent="VertexMarkers" index="6"]
+position = Vector2(-8, -16)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc03c108pomqt"]
+
+[ext_resource type="PackedScene" uid="uid://bhi0b8c2jmi1d" path="res://components/environment/object.tscn" id="1_8d2hp"]
+[ext_resource type="Texture2D" uid="uid://u1lxlnpmy313" path="res://assets/graphics/House decorations/Table.png" id="2_rvoyl"]
+
+[node name="Table" instance=ExtResource("1_8d2hp")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rvoyl")
+
+[node name="Marker2D" parent="VertexMarkers" index="0"]
+position = Vector2(-60, -31)
+
+[node name="Marker2D2" type="Marker2D" parent="VertexMarkers" index="1"]
+position = Vector2(62, -31)
+
+[node name="Marker2D3" type="Marker2D" parent="VertexMarkers" index="2"]
+position = Vector2(62, 32)
+
+[node name="Marker2D4" type="Marker2D" parent="VertexMarkers" index="3"]
+position = Vector2(-60, 32)

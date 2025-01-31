@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwb3emca17m7k"]
+
+[ext_resource type="PackedScene" uid="uid://bhi0b8c2jmi1d" path="res://components/environment/object.tscn" id="1_h6kbp"]
+[ext_resource type="Texture2D" uid="uid://ki51lxd4kmvw" path="res://assets/graphics/House decorations/Chimney - Table.png" id="2_lo1ra"]
+
+[node name="ChimneyTable" instance=ExtResource("1_h6kbp")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_lo1ra")
+
+[node name="Marker2D" parent="VertexMarkers" index="0"]
+position = Vector2(-27, -16)
+
+[node name="Marker2D2" type="Marker2D" parent="VertexMarkers" index="1"]
+position = Vector2(26, -16)
+
+[node name="Marker2D3" type="Marker2D" parent="VertexMarkers" index="2"]
+position = Vector2(26, 14)
+
+[node name="Marker2D4" type="Marker2D" parent="VertexMarkers" index="3"]
+position = Vector2(-27, 14)

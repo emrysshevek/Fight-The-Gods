@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhi0b8c2jmi1d"]
+[gd_scene load_steps=3 format=3 uid="uid://bhi0b8c2jmi1d"]
 
 [ext_resource type="Script" path="res://components/environment/object.gd" id="1_lc7tq"]
-[ext_resource type="Texture2D" uid="uid://bnd67nk8yhbcs" path="res://icon.svg" id="2_jd6nf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7lvc8"]
 bounce = 0.32
 
 [node name="Object" type="RigidBody2D"]
+texture_filter = 3
 collision_layer = 16
 collision_mask = 17
 mass = 0.005
@@ -15,10 +15,8 @@ gravity_scale = 0.8
 script = ExtResource("1_lc7tq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jd6nf")
 
 [node name="ObjectCollisionShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-64, -64, 63, -64, 64, 66, -64, 63)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 top_level = true
@@ -31,16 +29,6 @@ one_way_collision = true
 [node name="VertexMarkers" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="VertexMarkers"]
-position = Vector2(-64, -64)
-
-[node name="Marker2D2" type="Marker2D" parent="VertexMarkers"]
-position = Vector2(64, -64)
-
-[node name="Marker2D3" type="Marker2D" parent="VertexMarkers"]
-position = Vector2(64, 64)
-
-[node name="Marker2D4" type="Marker2D" parent="VertexMarkers"]
-position = Vector2(-64, 64)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../CharacterBody2D")

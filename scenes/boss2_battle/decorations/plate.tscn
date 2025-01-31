@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxwh5aiduvke"]
+
+[ext_resource type="PackedScene" uid="uid://p7qadeabgdjx" path="res://components/environment/decoration.tscn" id="1_ob70y"]
+[ext_resource type="Texture2D" uid="uid://cndlpf28r11ra" path="res://assets/graphics/House decorations/Table - Plates.png" id="2_mxnb8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jt4hc"]
+radius = 5.0
+height = 36.0
+
+[node name="Plate" instance=ExtResource("1_ob70y")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_mxnb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jt4hc")

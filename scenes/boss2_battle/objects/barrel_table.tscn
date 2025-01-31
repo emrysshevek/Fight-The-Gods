@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1efpojswvpk2"]
+
+[ext_resource type="PackedScene" uid="uid://bhi0b8c2jmi1d" path="res://components/environment/object.tscn" id="1_f368c"]
+[ext_resource type="Texture2D" uid="uid://d0k7fd7isfs5t" path="res://assets/graphics/House decorations/Barrel - Table.png" id="2_fw5ei"]
+
+[node name="BarrelTable" instance=ExtResource("1_f368c")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_fw5ei")
+
+[node name="Marker2D" parent="VertexMarkers" index="0"]
+position = Vector2(-18, -22)
+
+[node name="Marker2D2" type="Marker2D" parent="VertexMarkers" index="1"]
+position = Vector2(18, -22)
+
+[node name="Marker2D3" type="Marker2D" parent="VertexMarkers" index="2"]
+position = Vector2(18, 20)
+
+[node name="Marker2D4" type="Marker2D" parent="VertexMarkers" index="3"]
+position = Vector2(-18, 20)

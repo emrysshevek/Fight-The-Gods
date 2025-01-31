@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://p7qadeabgdjx"]
 
 [node name="Decoration" type="RigidBody2D"]
+texture_filter = 3
+collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
