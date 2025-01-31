@@ -1226,6 +1226,7 @@ size = Vector2(76, 77)
 size = Vector2(82, 98)
 
 [node name="Boss2" instance=ExtResource("1_aipxn")]
+collision_mask = 1
 script = ExtResource("2_518wb")
 max_speed = 275.0
 ground_acceleration = 1500.0
