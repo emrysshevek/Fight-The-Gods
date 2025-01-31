@@ -15,6 +15,11 @@ func _physics_process(delta: float) -> void:
 			or flipped and Input.is_action_pressed("right")
 		):
 			flip()
+	
+	if Input.is_action_pressed("down"):
+		set_collision_mask_value(2, false)
+	else:
+		set_collision_mask_value(2, true)
 
 	super._physics_process(delta)
 

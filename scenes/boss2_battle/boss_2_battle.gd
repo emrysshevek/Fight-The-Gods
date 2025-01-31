@@ -26,6 +26,8 @@ func _on_boss_slam() -> void:
 
 	camera.position = Vector2.ZERO
 	camera.zoom = Vector2(1.25, 1.25)
+
+	_unfreeze_objects()
 	
 	var spin_amount = randi_range(3,4) * (PI) + (PI/2)
 	var spin_duration = spin_amount * (1 / spin_speed)
@@ -54,3 +56,10 @@ func _on_spin_ended() -> void:
 	tweener.tween_property(camera, "position", next_cam_pos, .5)
 	tweener.tween_property(camera, "zoom", Vector2(1, 1), .5)
 
+func _unfreeze_objects() -> void:
+	for object: RigidBody2D in $Objects.get_children():
+		print(object)
+		object.freeze = false
+	for object: RigidBody2D in $Decorations.get_children():
+		print(object)
+		object.freeze = false

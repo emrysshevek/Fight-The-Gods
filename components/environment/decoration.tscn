@@ -3,5 +3,6 @@
 [node name="Decoration" type="RigidBody2D"]
 texture_filter = 3
 collision_layer = 32
+freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

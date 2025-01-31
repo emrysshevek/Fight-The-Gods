@@ -12,6 +12,7 @@ collision_mask = 17
 mass = 0.005
 physics_material_override = SubResource("PhysicsMaterial_7lvc8")
 gravity_scale = 0.8
+freeze = true
 script = ExtResource("1_lc7tq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

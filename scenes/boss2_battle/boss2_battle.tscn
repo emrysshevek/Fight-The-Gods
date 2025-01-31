@@ -94,13 +94,6 @@ shape = SubResource("RectangleShape2D_464fj")
 texture = ExtResource("3_uw7fr")
 metadata/_edit_lock_ = true
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("left_target", "middle_target", "right_target") instance=ExtResource("3_pbty1")]
-visible = false
-position = Vector2(132.25, 121)
-left_target = NodePath("../Markers/Left")
-middle_target = NodePath("../Markers/Middle")
-right_target = NodePath("../Markers/Right")
-
 [node name="Markers" type="Node2D" parent="."]
 
 [node name="Left" type="Node2D" parent="Markers"]
@@ -112,18 +105,30 @@ position = Vector2(3.75, 87.25)
 [node name="Right" type="Node2D" parent="Markers"]
 position = Vector2(119, 99.5)
 
-[node name="Player" parent="." instance=ExtResource("4_hanpa")]
-position = Vector2(-106.25, 67.75)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-position = Vector2(0, -45)
-
 [node name="UILayer" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="BattleHud" parent="UILayer" instance=ExtResource("5_cekgb")]
 
 [node name="Decorations" type="Node2D" parent="."]
+
+[node name="DrawerDecoration" parent="Decorations" instance=ExtResource("18_rn6wx")]
+position = Vector2(184, 38)
+
+[node name="MiniShelfDecoration" parent="Decorations" instance=ExtResource("19_7mqqy")]
+position = Vector2(178, -39)
+
+[node name="Pitcher" parent="Decorations" instance=ExtResource("20_soelj")]
+position = Vector2(13, 47)
+
+[node name="Plate" parent="Decorations" instance=ExtResource("21_wvfa4")]
+position = Vector2(-28, 56)
+
+[node name="TableCandles" parent="Decorations" instance=ExtResource("22_3kh7e")]
+position = Vector2(-61, 42)
+
+[node name="WindowDecorations" parent="Decorations" instance=ExtResource("23_qyio3")]
+position = Vector2(0, 14)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -151,6 +156,19 @@ position = Vector2(-168, 120)
 [node name="Barrel" parent="Objects" instance=ExtResource("16_rikcf")]
 position = Vector2(-119, 40)
 
+[node name="Enemy" parent="." node_paths=PackedStringArray("left_target", "middle_target", "right_target") instance=ExtResource("3_pbty1")]
+visible = false
+position = Vector2(132.25, 121)
+left_target = NodePath("../Markers/Left")
+middle_target = NodePath("../Markers/Middle")
+right_target = NodePath("../Markers/Right")
+
+[node name="Player" parent="." instance=ExtResource("4_hanpa")]
+position = Vector2(-106.25, 67.75)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -45)
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 90)
 script = ExtResource("10_wurlg")
@@ -162,24 +180,6 @@ position = Vector2(1, 20)
 
 [node name="vertical" type="Marker2D" parent="CameraPositions"]
 position = Vector2(0, 90)
-
-[node name="DrawerDecoration" parent="." instance=ExtResource("18_rn6wx")]
-position = Vector2(184, 38)
-
-[node name="MiniShelfDecoration" parent="." instance=ExtResource("19_7mqqy")]
-position = Vector2(178, -39)
-
-[node name="Pitcher" parent="." instance=ExtResource("20_soelj")]
-position = Vector2(13, 47)
-
-[node name="Plate" parent="." instance=ExtResource("21_wvfa4")]
-position = Vector2(-28, 56)
-
-[node name="TableCandles" parent="." instance=ExtResource("22_3kh7e")]
-position = Vector2(-61, 42)
-
-[node name="WindowDecorations" parent="." instance=ExtResource("23_qyio3")]
-position = Vector2(0, 14)
 
 [editable path="world/Floor"]
 [editable path="world/Floor2"]
