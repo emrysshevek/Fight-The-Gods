@@ -22,8 +22,8 @@ func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
 
 func _process(delta):
-	if target:
-		global_position = get_node(target).global_position
+	# if target:
+	# 	global_position = get_node(target).global_position
 	if trauma:
 		trauma = max(trauma - decay * delta, 0)
 		shake()

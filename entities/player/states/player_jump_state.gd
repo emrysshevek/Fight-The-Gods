@@ -28,10 +28,17 @@ func physics_update(delta: float) -> void:
 
     player.gravity = player.get_gravity()
     elapsed += delta
-    if elapsed < jump_duration:
-        holding = holding and Input.is_action_pressed("up")
-        if holding:
-            player.gravity = player.get_gravity() / 2
+    # if elapsed < jump_duration:
+    #     holding = holding and Input.is_action_pressed("up")
+    #     if holding:
+    #         player.gravity = player.get_gravity() / 2
+
+    if Input.is_action_pressed("jump"):
+        player.gravity =  player.get_gravity() * .5
+    elif Input.is_action_pressed("crouch"):
+        player.gravity = player.get_gravity() * 2
+    else:
+        player.gravity = player.get_gravity()
     
 
     handle_transition([DASH])

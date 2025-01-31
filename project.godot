@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Fight The Gods"
-run/main_scene="res://scenes/boss2_battle.tscn"
+run/main_scene="res://scenes/boss2_battle/boss2_battle.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=565
+window/size/viewport_width=480
+window/size/viewport_height=270
 window/size/mode=2
 window/stretch/mode="viewport"
 

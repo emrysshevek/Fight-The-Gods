@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2g1fvmqhnxrj"]
+[gd_scene load_steps=3 format=3 uid="uid://b2g1fvmqhnxrj"]
 
+[ext_resource type="Texture2D" uid="uid://llj3p0s5ak7t" path="res://assets/graphics/Health bar/Health bar_Background.png" id="1_j1pit"]
 [ext_resource type="PackedScene" uid="uid://8bqfo7mlqunf" path="res://ui/battle_hud/hp_bar.tscn" id="1_v38sv"]
 
 [node name="BattleHud" type="Control"]
@@ -15,11 +16,15 @@ metadata/_edit_lock_ = true
 layout_mode = 1
 offset_right = 84.0
 offset_bottom = 84.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_j1pit")
 
 [node name="HpBar" parent="MarginContainer" instance=ExtResource("1_v38sv")]
 layout_mode = 2

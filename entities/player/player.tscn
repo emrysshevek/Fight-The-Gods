@@ -722,7 +722,7 @@ ground_friction = 2000.0
 jump_velocity = 1000.0
 max_fall_speed = 10000.0
 air_acceleration = 1200.0
-max_health = 3.0
+max_health = 5.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 3
