@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cgwvfontvx4ti" path="res://entities/entity.tscn" id="1_56s1m"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_bjjw0"]
 [ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="3_1dxam"]
-[ext_resource type="Script" path="res://components/state_machine/state_machine.gd" id="3_f0wsw"]
 [ext_resource type="Script" path="res://entities/player/states/player_idle_state.gd" id="4_0e5dw"]
 [ext_resource type="Script" path="res://entities/player/states/player_init_state.gd" id="4_5qng1"]
+[ext_resource type="Script" path="res://entities/entity_state_machine.gd" id="4_mfse3"]
 [ext_resource type="Script" path="res://entities/player/states/player_walk_state.gd" id="5_1s3cc"]
 [ext_resource type="Script" path="res://entities/player/states/player_crouch_state.gd" id="6_kaq3k"]
 [ext_resource type="Script" path="res://entities/player/states/player_land_state.gd" id="7_fjau3"]
@@ -941,7 +941,7 @@ libraries = {
 }
 
 [node name="StateMachine" type="Node" parent="." index="5"]
-script = ExtResource("3_f0wsw")
+script = ExtResource("4_mfse3")
 
 [node name="Init" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("4_5qng1")

@@ -1,5 +1,5 @@
 class_name Boss2State
-extends State
+extends EntityState
 
 const IDLE := "Idle"
 const CHASE := "Chase"

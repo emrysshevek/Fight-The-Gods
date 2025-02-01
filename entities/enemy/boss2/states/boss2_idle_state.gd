@@ -14,6 +14,9 @@ func enter(_previous_state_path: String, _data := {}) -> void:
     boss.ap.play("idle")
     timer.start()
 
+func exit() -> void:
+    timer.stop()
+
 func _on_timer_timeout() -> void:
     print("idle timer finished")
     finished.emit(CHASE)

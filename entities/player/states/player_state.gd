@@ -1,5 +1,5 @@
 class_name PlayerState
-extends State
+extends EntityState
 
 const IDLE := "Idle"
 const WALK := "Walk"
@@ -11,7 +11,6 @@ const FLOAT := "Float"
 const SIMPLE_ATTACK := "SimpleAttack"
 const HEAVY_ATTACK := "HeavyAttack"
 const HIT := "Hit"
-const DIE := "Die"
 
 var player: Player
 
@@ -19,10 +18,6 @@ func _ready() -> void:
 	await owner.ready
 	player = owner
 	assert(player != null, "Player state must be used in player node")
-	player.died.connect(_on_player_died)
-
-func _on_player_died(_which_entity: Entity) -> void:
-	finished.emit(DIE)
 
 func handle_transition(allowed: Array[String]) -> String:
 	if FLOAT in allowed and not player.is_on_floor():
