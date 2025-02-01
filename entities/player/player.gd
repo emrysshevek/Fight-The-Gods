@@ -10,9 +10,12 @@ var moveable: bool = true
 func _physics_process(delta: float) -> void:
 	if moveable:
 		handle_player_movement(delta)
-		if (
-			not flipped and Input.is_action_pressed("left")
-			or flipped and Input.is_action_pressed("right")
+
+		if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
+			pass
+		elif (
+			(not flipped and Input.is_action_pressed("left") and not Input.is_action_pressed("right"))
+			or (flipped and Input.is_action_pressed("right") and not Input.is_action_pressed("left"))
 		):
 			flip()
 	

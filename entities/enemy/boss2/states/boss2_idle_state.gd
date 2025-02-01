@@ -16,4 +16,4 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 func _on_timer_timeout() -> void:
     print("idle timer finished")
-    finished.emit(POSIITON)
+    finished.emit(THROW)

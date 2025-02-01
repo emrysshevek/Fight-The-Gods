@@ -2,7 +2,9 @@ class_name Boss2State
 extends State
 
 const IDLE := "Idle"
+const CHASE := "Chase"
 const POSIITON := "Position"
+const THROW := "Throw"
 const WAVE := "Wave"
 
 var boss: Boss2

@@ -13,11 +13,15 @@ func _ready() -> void:
 	timer.wait_time = 2
 	timer.one_shot = true
 	add_child(timer)
+	# target = boss.left_target
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	var targets: Array[Node2D] = [boss.left_target, boss.right_target]
-	targets.erase(target)
-	target = targets.pick_random()
+	if target == null:
+		target = boss.right_target
+	else:
+		var targets: Array[Node2D] = [boss.left_target, boss.right_target]
+		targets.erase(target)
+		target = targets.pick_random()
 	target_position = target.global_position
 
 	_switch_action()
@@ -49,18 +53,17 @@ func _switch_action() -> void:
 		direction = sign(target_position.x - boss.global_position.x)
 		if (direction == -1 and not boss.flipped) or (direction == 1 and boss.flipped):
 			boss.flip()
-		timer.start()
 	else:
 		action = "attack"
 		boss.ap.play("idle")
 		boss.ap.speed_scale = 1
-		await get_tree().create_timer(.5).timeout
+		await get_tree().create_timer(.75).timeout
 		boss.ap.play("simple_attack")
-		boss.ap.speed_scale = 1.25
+		boss.ap.speed_scale = 1
 		direction = sign(get_tree().get_first_node_in_group("player").global_position.x - boss.global_position.x)
 		if (direction == -1 and not boss.flipped) or (direction == 1 and boss.flipped):
 			boss.flip()
-		for i in range(3):
+		for i in range(2):
 			boss.ap.queue("simple_attack")
 		boss.ap.queue("walk")
 

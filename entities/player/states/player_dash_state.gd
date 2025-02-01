@@ -29,6 +29,7 @@ func exit() -> void:
     player.ap.animation_finished.disconnect(_on_animation_finished)
 
 func physics_update(delta: float) -> void:
+    player.set_collision_mask_value(2, false)
     player.gravity = Vector2.ZERO
     elapsed += delta
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bouiqjqaxxlgy"]
+
+[ext_resource type="PackedScene" uid="uid://crtycx2ete6bg" path="res://components/attacks/attack.tscn" id="1_s7gvl"]
+[ext_resource type="Script" path="res://components/attacks/projectile_attack.gd" id="2_bl1r1"]
+
+[node name="ProjectileAttack" instance=ExtResource("1_s7gvl")]
+script = ExtResource("2_bl1r1")
+start_position = Vector2(0, 0)
+target_position = Vector2(0, 0)
+destination_position = Vector2(0, 0)
+speed = 300
+duration = 4.0

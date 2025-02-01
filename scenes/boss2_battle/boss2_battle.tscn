@@ -164,9 +164,6 @@ right_target = NodePath("../Markers/Right")
 [node name="Player" parent="." instance=ExtResource("4_hanpa")]
 position = Vector2(130, 134)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-position = Vector2(0, -45)
-
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 90)
 script = ExtResource("10_wurlg")

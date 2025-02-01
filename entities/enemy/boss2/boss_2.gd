@@ -2,7 +2,7 @@ class_name Boss2
 extends Enemy
 
 signal stomp()
-signal slam()
+signal slam(direction: int)
 
 @export var left_target: Node2D
 @export var middle_target: Node2D
@@ -16,4 +16,7 @@ func _on_step() -> void:
     stomp.emit()
 
 func _on_slam() -> void:
-    slam.emit()
+    if global_position.distance_to(left_target.global_position) < global_position.distance_to(right_target.global_position):
+        slam.emit(-1)
+    else:
+        slam.emit(1)

@@ -16,7 +16,7 @@ func _ready() -> void:
 # func _on_boss_stomp() -> void:
 # 	camera.add_trauma(.65)
 
-func _on_boss_slam() -> void:
+func _on_boss_slam(direction: int) -> void:
 	# print("Boss slammed stage...spin time!")
 
 	if stage_orientation == "horizontal":
@@ -35,7 +35,7 @@ func _on_boss_slam() -> void:
 	var tweener = create_tween()
 	tweener.set_parallel()
 
-	var spin_tween = tweener.tween_property(world, "rotation", world.rotation + spin_amount, spin_duration)
+	var spin_tween = tweener.tween_property(world, "rotation", world.rotation + (direction * spin_amount), spin_duration)
 	spin_tween.set_ease(Tween.EASE_OUT)
 	spin_tween.set_trans(Tween.TRANS_SINE)
 
