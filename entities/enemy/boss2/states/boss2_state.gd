@@ -5,7 +5,8 @@ const IDLE := "Idle"
 const CHASE := "Chase"
 const POSIITON := "Position"
 const THROW := "Throw"
-const WAVE := "Wave"
+const SLAM := "Slam"
+const SPIN := "Spin"
 
 var boss: Boss2
 

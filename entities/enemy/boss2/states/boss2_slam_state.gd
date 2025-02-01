@@ -1,4 +1,4 @@
-class_name Boss2WaveState
+class_name Boss2SlamState
 extends Boss2State
 
 @export var pause_duration := 4.0
@@ -28,18 +28,10 @@ func exit() -> void:
     boss.ap.animation_finished.disconnect(_on_animation_finished)    
 
 func _on_animation_finished(_name: StringName) -> void:
-    print("animation finished: ", _name)
     boss.ap.speed_scale = 1
-    finished.emit(IDLE)
-    # count += 1
-    # if count >= max_reps:
-    #     return
-
-    # boss.ap.play("idle")
-    # timer.start()
+    finished.emit(SPIN)
 
 func _on_timer_timeout() -> void:
     boss.ap.speed_scale = 1.25
     boss.ap.play("heavy_attack")
-    # if count % 2 == 0:
-    #     boss.ap.queue("heavy_attack")
+

@@ -38,7 +38,7 @@ func physics_update(delta: float) -> void:
 	if abs(boss.global_position.x - target_position.x) < 5:
 		print("boss reached target")
 		boss.flip()
-		finished.emit(WAVE)
+		finished.emit(THROW)
 		return
 
 	if action == "walk":
