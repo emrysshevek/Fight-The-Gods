@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5mik0m74fj8g"]
+
+[ext_resource type="Script" path="res://ui/pause/pause.gd" id="1_avarb"]
+[ext_resource type="Texture2D" uid="uid://cobdvsy3ctka" path="res://assets/graphics/Pause menu/Pause menu.png" id="2_8faq0"]
+[ext_resource type="Texture2D" uid="uid://dkta8supd3p3d" path="res://assets/graphics/Pause menu/Selected_Continue.png" id="3_jofy5"]
+[ext_resource type="Texture2D" uid="uid://bhc8dl0c4kjtw" path="res://assets/graphics/Pause menu/Selected_Restart.png" id="4_owdsr"]
+[ext_resource type="Texture2D" uid="uid://c7mxb0cylcst5" path="res://assets/graphics/Pause menu/Selected_Options.png" id="5_jahp4"]
+[ext_resource type="Texture2D" uid="uid://dff7gh5ccd4e8" path="res://assets/graphics/Pause menu/Selected_Main-menu.png" id="6_nqcoe"]
+[ext_resource type="PackedScene" uid="uid://b3qhvm5eohoac" path="res://ui/options/options.tscn" id="7_nkvr8"]
+
+[node name="Pause" type="Control"]
+process_mode = 2
+texture_filter = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avarb")
+metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = [113.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.862745)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -110.5
+offset_right = 91.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8faq0")
+metadata/_edit_lock_ = true
+
+[node name="Continue" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -110.5
+offset_right = 91.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jofy5")
+metadata/_edit_lock_ = true
+
+[node name="Restart" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -110.5
+offset_right = 91.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_owdsr")
+metadata/_edit_lock_ = true
+
+[node name="Options" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -110.5
+offset_right = 91.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_jahp4")
+metadata/_edit_lock_ = true
+
+[node name="Quit" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -110.5
+offset_right = 91.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_nqcoe")
+metadata/_edit_lock_ = true
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 108.0
+offset_right = 274.0
+offset_bottom = 124.0
+mouse_default_cursor_shape = 2
+metadata/_edit_lock_ = true
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 128.0
+offset_right = 269.0
+offset_bottom = 144.0
+mouse_default_cursor_shape = 2
+metadata/_edit_lock_ = true
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 148.0
+offset_right = 269.0
+offset_bottom = 164.0
+mouse_default_cursor_shape = 2
+metadata/_edit_lock_ = true
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 168.0
+offset_right = 277.0
+offset_bottom = 184.0
+mouse_default_cursor_shape = 2
+metadata/_edit_lock_ = true
+
+[node name="OptionsMenu" parent="." instance=ExtResource("7_nkvr8")]
+visible = false
+z_index = 7
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="BackgroundButton" to="." method="_on_background_button_pressed"]
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_continue_button_mouse_entered"]
+[connection signal="mouse_exited" from="ContinueButton" to="." method="_on_continue_button_mouse_exited"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="mouse_entered" from="RestartButton" to="." method="_on_restart_button_mouse_entered"]
+[connection signal="mouse_exited" from="RestartButton" to="." method="_on_restart_button_mouse_exited"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_exited" from="OptionsButton" to="." method="_on_options_button_mouse_exited"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
