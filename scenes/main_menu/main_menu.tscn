@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0d3nmqg7s02x"]
+[gd_scene load_steps=14 format=3 uid="uid://d0d3nmqg7s02x"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_0jdi1"]
 [ext_resource type="Texture2D" uid="uid://cjt1sc8ja5o4i" path="res://assets/graphics/Cliff background.png" id="2_1m872"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cn78n5i6ej6rg" path="res://assets/graphics/Main title/Selected_Credits.png" id="7_8ekn1"]
 [ext_resource type="Texture2D" uid="uid://dhe0ieipdk1md" path="res://assets/graphics/Main title/Selected_Bonus.png" id="9_fgsjr"]
 [ext_resource type="PackedScene" uid="uid://b3qhvm5eohoac" path="res://ui/options/options.tscn" id="11_bp2ne"]
+[ext_resource type="PackedScene" uid="uid://bpw27bhfg3wwp" path="res://ui/credits/credits.tscn" id="12_l11bk"]
 
 [node name="MainMenu" type="Node2D"]
 texture_filter = 3
@@ -96,6 +97,10 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Options" parent="UI/Control" instance=ExtResource("11_bp2ne")]
+visible = false
+layout_mode = 1
+
+[node name="Credits" parent="UI/Control" instance=ExtResource("12_l11bk")]
 visible = false
 layout_mode = 1
 

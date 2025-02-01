@@ -13,7 +13,7 @@ func _on_options_button_pressed() -> void:
 	$UI/Control/Options.show()
 
 func _on_credits_button_pressed() -> void:
-	pass # Replace with function body.
+	$UI/Control/Credits.show()
 
 func _on_bonus_button_pressed() -> void:
 	pass # Replace with function body.

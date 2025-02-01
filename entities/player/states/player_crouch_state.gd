@@ -4,6 +4,8 @@ extends PlayerState
 const END_STARTUP_FRAME = 10
 const FPS = 40
 
+@export var parry_duration := 1.0
+
 func enter(_previous_state_path: String, _data := {}) -> void:
     player.moving = false
     player.moveable = false

@@ -4,6 +4,7 @@ extends Entity
 @export var dash_speed := 1000.0
 
 var moveable: bool = true
+var defense := 0.0
 
 @onready var i_timer: Timer = $InvincibilityTimer
 
