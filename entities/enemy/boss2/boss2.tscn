@@ -1999,7 +1999,6 @@ position = Vector2(31, -177)
 shape = SubResource("RectangleShape2D_181xv")
 
 [node name="ProjectileAttack" parent="." index="7" instance=ExtResource("238_au7r6")]
-visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProjectileAttack" index="0"]
 sprite_frames = SubResource("SpriteFrames_dxd20")
@@ -2011,7 +2010,6 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileAttack/Hitbox" index="0"]
-position = Vector2(55, -92)
 shape = SubResource("RectangleShape2D_8xitw")
 
 [node name="Markers" type="Node2D" parent="." index="8"]
@@ -2054,3 +2052,4 @@ script = ExtResource("279_imk1k")
 [connection signal="area_entered" from="WaveAttack/Hitbox" to="WaveAttack/Hitbox" method="_on_area_entered"]
 [connection signal="area_exited" from="WaveAttack/Hitbox" to="WaveAttack/Hitbox" method="_on_area_exited"]
 [connection signal="hit" from="WaveAttack/Hitbox" to="WaveAttack" method="_on_hit"]
+[connection signal="hit" from="ProjectileAttack/Hitbox" to="ProjectileAttack" method="_on_hit"]

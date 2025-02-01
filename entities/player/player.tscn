@@ -730,7 +730,6 @@ metadata/_edit_lock_ = true
 [node name="Hurtbox" parent="." index="1"]
 collision_layer = 4
 collision_mask = 8
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(2, -38)
