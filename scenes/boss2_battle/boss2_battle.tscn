@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bpud61ltdmdtn"]
+[gd_scene load_steps=28 format=3 uid="uid://bpud61ltdmdtn"]
 
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="1_7e5nu"]
 [ext_resource type="Script" path="res://scenes/boss2_battle/boss_2_battle.gd" id="1_rp7ue"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://7ol34ghgkhe4" path="res://ui/death_screen/game_over.tscn" id="23_ouv14"]
 [ext_resource type="PackedScene" uid="uid://bpgmteupokmud" path="res://scenes/boss2_battle/decorations/window_decorations.tscn" id="23_qyio3"]
 [ext_resource type="PackedScene" uid="uid://c5mik0m74fj8g" path="res://ui/pause/pause.tscn" id="24_8ts7d"]
+[ext_resource type="PackedScene" uid="uid://bxrqfcod5kwqo" path="res://ui/win_screen/win_screen.tscn" id="24_rp3hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
 size = Vector2(614.75, 73)
@@ -180,7 +181,10 @@ position = Vector2(0, 90)
 
 [node name="BattleHud" parent="UILayer" instance=ExtResource("5_cekgb")]
 
-[node name="GameOver" parent="UILayer" instance=ExtResource("23_ouv14")]
+[node name="LoseScreen" parent="UILayer" instance=ExtResource("23_ouv14")]
+visible = false
+
+[node name="WinScreen" parent="UILayer" instance=ExtResource("24_rp3hr")]
 visible = false
 
 [node name="Pause" parent="UILayer" instance=ExtResource("24_8ts7d")]

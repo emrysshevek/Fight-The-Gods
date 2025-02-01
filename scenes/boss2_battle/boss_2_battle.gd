@@ -6,7 +6,6 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var camera: Camera = $Camera
 @onready var stage: Node2D = $stage
-@onready var game_over: Control = $UILayer/GameOver
 
 var stage_orientation = "horizontal"
 
@@ -15,6 +14,7 @@ func _ready() -> void:
 	# boss.stomp.connect(_on_boss_stomp)
 	boss.slam.connect(_on_boss_slam)
 	player.died.connect(_on_player_died)
+	boss.died.connect(_on_boss_died)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -24,17 +24,18 @@ func pause() -> void:
 	# get_tree().paused = true
 	$UILayer/Pause.open()
 
-func _on_player_died(_which_entity: Player) -> void:
-	game_over.position.y += 956
-	game_over.show()
+func _on_player_died(_which_entity: Entity) -> void:
+	# game_over.position.y += 956
+	$UILayer/LoseScreen.show()
 
-	var tweener: Tween = create_tween().set_parallel()
+	# var tweener: Tween = create_tween().set_parallel()
 
-	var screen_tween = tweener.tween_property(game_over, "position", Vector2.ZERO, 2)
-	screen_tween.set_trans(Tween.TRANS_SPRING)
+	# var screen_tween = tweener.tween_property(game_over, "position", Vector2.ZERO, 2)
+	# screen_tween.set_trans(Tween.TRANS_SPRING)
 
 
-	
+func _on_boss_died(_which_entity: Entity) -> void:
+	$UILayer/WinScreen.show()
 
 
 # func _on_boss_stomp() -> void:
