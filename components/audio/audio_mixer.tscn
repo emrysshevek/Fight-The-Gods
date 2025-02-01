@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://5h8lk1orka5f"]
+
+[ext_resource type="Script" path="res://components/audio/audio_mixer.gd" id="1_8se5l"]
+
+[node name="AudioMixer" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_8se5l")
+
+[node name="Player1" type="AudioStreamPlayer" parent="."]
+
+[node name="Player2" type="AudioStreamPlayer" parent="."]

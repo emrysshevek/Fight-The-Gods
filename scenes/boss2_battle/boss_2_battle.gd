@@ -7,6 +7,9 @@ extends Node2D
 @onready var camera: Camera = $Camera
 @onready var stage: Node2D = $stage
 
+@onready var theme: AudioStream = preload("res://assets/music/Earth Boss/Lumberjack-Earth Boss_Mix_Placeholder.wav")
+@onready var loop: AudioStream = preload("res://assets/music/Earth Boss/Lumberjack-Earth Boss_Loop_Placeholder.wav")
+
 var stage_orientation = "horizontal"
 
 func _ready() -> void:
@@ -15,6 +18,7 @@ func _ready() -> void:
 	boss.slam.connect(_on_boss_slam)
 	player.died.connect(_on_player_died)
 	boss.died.connect(_on_boss_died)
+	AudioMixer.play(theme, loop)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
