@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpud61ltdmdtn"]
+[gd_scene load_steps=26 format=3 uid="uid://bpud61ltdmdtn"]
 
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="1_7e5nu"]
 [ext_resource type="Script" path="res://scenes/boss2_battle/boss_2_battle.gd" id="1_rp7ue"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dtxv5h2cmouss" path="res://scenes/boss2_battle/decorations/pitcher.tscn" id="20_soelj"]
 [ext_resource type="PackedScene" uid="uid://bxwh5aiduvke" path="res://scenes/boss2_battle/decorations/plate.tscn" id="21_wvfa4"]
 [ext_resource type="PackedScene" uid="uid://dqmlmiuueidla" path="res://scenes/boss2_battle/decorations/table_candles.tscn" id="22_3kh7e"]
+[ext_resource type="PackedScene" uid="uid://7ol34ghgkhe4" path="res://ui/death_screen/game_over.tscn" id="23_ouv14"]
 [ext_resource type="PackedScene" uid="uid://bpgmteupokmud" path="res://scenes/boss2_battle/decorations/window_decorations.tscn" id="23_qyio3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
@@ -47,50 +48,50 @@ autoscroll = Vector2(0, -750)
 texture_repeat = 2
 texture = ExtResource("2_bgpbj")
 
-[node name="world" type="Node2D" parent="."]
+[node name="stage" type="Node2D" parent="."]
 
-[node name="Floor" parent="world" instance=ExtResource("1_7e5nu")]
+[node name="Floor" parent="stage" instance=ExtResource("1_7e5nu")]
 position = Vector2(4.50003, 170)
 
-[node name="ColorRect" parent="world/Floor" index="0"]
+[node name="ColorRect" parent="stage/Floor" index="0"]
 visible = false
 offset_left = -38.0
 offset_right = 1930.0
 offset_bottom = 75.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Floor"]
 shape = SubResource("RectangleShape2D_mgnj2")
 metadata/_edit_lock_ = true
 
-[node name="Floor2" parent="world" instance=ExtResource("1_7e5nu")]
+[node name="Floor2" parent="stage" instance=ExtResource("1_7e5nu")]
 position = Vector2(-3.13848e-05, -184)
 
-[node name="ColorRect" parent="world/Floor2" index="0"]
+[node name="ColorRect" parent="stage/Floor2" index="0"]
 visible = false
 offset_left = -38.0
 offset_right = 1930.0
 offset_bottom = 75.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Floor2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Floor2"]
 position = Vector2(5.625, 0)
 shape = SubResource("RectangleShape2D_mgnj2")
 metadata/_edit_lock_ = true
 
-[node name="Floor3" parent="world" instance=ExtResource("1_7e5nu")]
+[node name="Floor3" parent="stage" instance=ExtResource("1_7e5nu")]
 position = Vector2(-302, -6.25)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Floor3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Floor3"]
 position = Vector2(37.5, 4.62532e-05)
 shape = SubResource("RectangleShape2D_464fj")
 
-[node name="Floor4" parent="world" instance=ExtResource("1_7e5nu")]
+[node name="Floor4" parent="stage" instance=ExtResource("1_7e5nu")]
 position = Vector2(301, -92.7501)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Floor4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Floor4"]
 position = Vector2(-27.75, 85)
 shape = SubResource("RectangleShape2D_464fj")
 
-[node name="BGSprite" type="Sprite2D" parent="world"]
+[node name="BGSprite" type="Sprite2D" parent="stage"]
 texture = ExtResource("3_uw7fr")
 metadata/_edit_lock_ = true
 
@@ -104,10 +105,6 @@ position = Vector2(3.75, 87.25)
 
 [node name="Right" type="Node2D" parent="Markers"]
 position = Vector2(119, 99.5)
-
-[node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="BattleHud" parent="UILayer" instance=ExtResource("5_cekgb")]
 
 [node name="Decorations" type="Node2D" parent="."]
 
@@ -157,6 +154,7 @@ position = Vector2(-119, 40)
 
 [node name="Player" parent="." instance=ExtResource("4_hanpa")]
 position = Vector2(130, 134)
+max_health = 1.0
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("left_target", "middle_target", "right_target") instance=ExtResource("3_pbty1")]
 position = Vector2(-105, 136)
@@ -176,5 +174,12 @@ position = Vector2(1, 20)
 [node name="vertical" type="Marker2D" parent="CameraPositions"]
 position = Vector2(0, 90)
 
-[editable path="world/Floor"]
-[editable path="world/Floor2"]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="BattleHud" parent="UILayer" instance=ExtResource("5_cekgb")]
+
+[node name="GameOver" parent="UILayer" instance=ExtResource("23_ouv14")]
+visible = false
+
+[editable path="stage/Floor"]
+[editable path="stage/Floor2"]

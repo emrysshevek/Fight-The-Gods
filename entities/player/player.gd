@@ -54,3 +54,6 @@ func start_hit_cooldown() -> void:
 func _on_invincibility_timer_timeout() -> void:
 	damageable = true
 	sprite.end_flash()
+
+func die() -> void:
+	died.emit(self)

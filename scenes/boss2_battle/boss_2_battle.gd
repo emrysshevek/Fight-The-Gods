@@ -3,8 +3,10 @@ extends Node2D
 @export var spin_speed := 1.0
 
 @onready var boss: Boss2 = $Enemy
+@onready var player: Player = $Player
 @onready var camera: Camera = $Camera
-@onready var world: Node2D = $world
+@onready var stage: Node2D = $stage
+@onready var game_over: Control = $UILayer/GameOver
 
 var stage_orientation = "horizontal"
 
@@ -12,6 +14,20 @@ func _ready() -> void:
 	camera.position = $CameraPositions/horizontal.position
 	# boss.stomp.connect(_on_boss_stomp)
 	boss.slam.connect(_on_boss_slam)
+	player.died.connect(_on_player_died)
+
+func _on_player_died(_which_entity: Player) -> void:
+	game_over.position.y += 956
+	game_over.show()
+
+	var tweener: Tween = create_tween().set_parallel()
+
+	var screen_tween = tweener.tween_property(game_over, "position", Vector2.ZERO, 2)
+	screen_tween.set_trans(Tween.TRANS_SPRING)
+	
+
+	
+
 
 # func _on_boss_stomp() -> void:
 # 	camera.add_trauma(.65)
@@ -36,7 +52,7 @@ func _on_boss_slam(direction: int) -> void:
 	var tweener = create_tween()
 	tweener.set_parallel()
 
-	var spin_tween = tweener.tween_property(world, "rotation", world.rotation + (direction * spin_amount), spin_duration)
+	var spin_tween = tweener.tween_property(stage, "rotation", stage.rotation + (direction * spin_amount), spin_duration)
 	spin_tween.set_ease(Tween.EASE_OUT)
 	spin_tween.set_trans(Tween.TRANS_SINE)
 

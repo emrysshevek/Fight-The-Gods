@@ -15,6 +15,12 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func _initiate() -> void:
     get_tree().create_timer(.475).timeout.connect(_throw)
     target = get_tree().get_first_node_in_group("player").global_position
+    var dir = target.x - boss.global_position.x
+    if dir < 0 and not boss.flipped:
+        boss.flip()
+    elif dir > 0 and boss.flipped:
+        boss.flip()
+
     target.y -= 50
     boss.ap.play("throw")
 
@@ -38,5 +44,5 @@ func _on_caught(_name: StringName) -> void:
         return
 
     boss.ap.play("idle")
-    get_tree().create_timer(randf_range(1.5,2.5)).timeout.connect(_initiate)
+    get_tree().create_timer(2).timeout.connect(_initiate)
 
