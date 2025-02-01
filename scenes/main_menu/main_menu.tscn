@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0d3nmqg7s02x"]
+[gd_scene load_steps=13 format=3 uid="uid://d0d3nmqg7s02x"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_0jdi1"]
 [ext_resource type="Texture2D" uid="uid://cjt1sc8ja5o4i" path="res://assets/graphics/Cliff background.png" id="2_1m872"]
+[ext_resource type="Texture2D" uid="uid://dqs33b8opd73" path="res://assets/graphics/Main title/Button_Play.png" id="2_wvci5"]
+[ext_resource type="Texture2D" uid="uid://drqu1shpjjur3" path="res://assets/graphics/Main title/Button_Options.png" id="3_b73ym"]
+[ext_resource type="Texture2D" uid="uid://cqqosnr41j3pe" path="res://assets/graphics/Main title/Selected_Play.png" id="3_rhnsr"]
+[ext_resource type="Texture2D" uid="uid://c2rflyy5cfmv" path="res://assets/graphics/Main title/Button_Credits.png" id="4_e4dql"]
+[ext_resource type="Script" path="res://ui/img_button.gd" id="4_kse0b"]
+[ext_resource type="Texture2D" uid="uid://berht32n2iukf" path="res://assets/graphics/Main title/Selected_Options.png" id="5_c4kyu"]
+[ext_resource type="Texture2D" uid="uid://by7tbgkmw6xkw" path="res://assets/graphics/Main title/Button_Bonus.png" id="5_u0q4t"]
+[ext_resource type="Texture2D" uid="uid://cn78n5i6ej6rg" path="res://assets/graphics/Main title/Selected_Credits.png" id="7_8ekn1"]
+[ext_resource type="Texture2D" uid="uid://dhe0ieipdk1md" path="res://assets/graphics/Main title/Selected_Bonus.png" id="9_fgsjr"]
+[ext_resource type="PackedScene" uid="uid://b3qhvm5eohoac" path="res://ui/options/options.tscn" id="11_bp2ne"]
 
 [node name="MainMenu" type="Node2D"]
+texture_filter = 3
 script = ExtResource("1_0jdi1")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -17,31 +28,60 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+[node name="Main" type="Control" parent="UI/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/Main"]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 80.0
-offset_right = 160.0
-offset_bottom = 216.0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 195.0
+offset_bottom = 272.0
+theme_override_constants/separation = -1
 
-[node name="PlayButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
 layout_mode = 2
-text = "Play"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_wvci5")
+texture_pressed = ExtResource("3_rhnsr")
+texture_hover = ExtResource("3_rhnsr")
+texture_disabled = ExtResource("2_wvci5")
+texture_focused = ExtResource("3_rhnsr")
+script = ExtResource("4_kse0b")
 
-[node name="OptionsButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
 layout_mode = 2
-text = "Options"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_b73ym")
+texture_pressed = ExtResource("5_c4kyu")
+texture_hover = ExtResource("5_c4kyu")
+texture_disabled = ExtResource("3_b73ym")
+texture_focused = ExtResource("5_c4kyu")
+script = ExtResource("4_kse0b")
 
-[node name="CreditsButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
 layout_mode = 2
-text = "Credits"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_e4dql")
+texture_pressed = ExtResource("7_8ekn1")
+texture_hover = ExtResource("7_8ekn1")
+texture_disabled = ExtResource("4_e4dql")
+texture_focused = ExtResource("7_8ekn1")
+script = ExtResource("4_kse0b")
 
-[node name="BonusButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="BonusButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
 layout_mode = 2
-disabled = true
-text = "Bonus"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_u0q4t")
+texture_pressed = ExtResource("9_fgsjr")
+texture_hover = ExtResource("9_fgsjr")
+texture_disabled = ExtResource("5_u0q4t")
+texture_focused = ExtResource("5_u0q4t")
+script = ExtResource("4_kse0b")
 
-[node name="Title" type="Label" parent="UI/Control"]
+[node name="Title" type="Label" parent="UI/Control/Main"]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 24.0
@@ -55,6 +95,10 @@ text = "The day I woke up to fight gods and steal their stuff"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Options" parent="UI/Control" instance=ExtResource("11_bp2ne")]
+visible = false
+layout_mode = 1
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
@@ -65,9 +109,9 @@ autoscroll = Vector2(0, -25)
 position = Vector2(240, 32)
 texture = ExtResource("2_1m872")
 
-[connection signal="pressed" from="UI/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/Control/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="UI/Control/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="mouse_entered" from="UI/Control/VBoxContainer/BonusButton" to="." method="_on_bonus_button_mouse_entered"]
-[connection signal="mouse_exited" from="UI/Control/VBoxContainer/BonusButton" to="." method="_on_bonus_button_mouse_exited"]
-[connection signal="pressed" from="UI/Control/VBoxContainer/BonusButton" to="." method="_on_bonus_button_pressed"]
+[connection signal="pressed" from="UI/Control/Main/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Control/Main/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="UI/Control/Main/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="UI/Control/Main/VBoxContainer/BonusButton" to="." method="_on_bonus_button_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Control/Main/VBoxContainer/BonusButton" to="." method="_on_bonus_button_mouse_exited"]
+[connection signal="pressed" from="UI/Control/Main/VBoxContainer/BonusButton" to="." method="_on_bonus_button_pressed"]

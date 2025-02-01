@@ -1,3 +1,131 @@
-[gd_scene format=3 uid="uid://b3qhvm5eohoac"]
+[gd_scene load_steps=7 format=3 uid="uid://b3qhvm5eohoac"]
 
-[node name="Options" type="Node2D"]
+[ext_resource type="Script" path="res://ui/options/options.gd" id="1_4keq2"]
+[ext_resource type="Texture2D" uid="uid://duhawprmthacu" path="res://assets/graphics/Option menu/Option menu.png" id="2_44apc"]
+[ext_resource type="Texture2D" uid="uid://d14ai7r0srf2r" path="res://assets/graphics/Option menu/Mute_On.png" id="3_ui1s3"]
+[ext_resource type="Texture2D" uid="uid://blen2p6h0uqdk" path="res://assets/graphics/Option menu/Selected_Easy.png" id="4_4gk1e"]
+[ext_resource type="Texture2D" uid="uid://lfuskxamxawu" path="res://assets/graphics/Option menu/Selected_Medium.png" id="5_rx81c"]
+[ext_resource type="Texture2D" uid="uid://oiisvxbk7ii8" path="res://assets/graphics/Option menu/Selected_Hard.png" id="6_gl03s"]
+
+[node name="Options" type="Control"]
+texture_filter = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4keq2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -124.5
+offset_right = 91.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("2_44apc")
+
+[node name="MuteOn" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 11.0
+offset_right = 331.0
+offset_bottom = 260.0
+mouse_filter = 2
+texture = ExtResource("3_ui1s3")
+
+[node name="SelectedEasy" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 11.0
+offset_right = 189.0
+offset_bottom = 51.0
+mouse_filter = 2
+texture = ExtResource("4_4gk1e")
+
+[node name="SelectedMedium" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -124.5
+offset_right = 91.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_rx81c")
+
+[node name="SelectedHard" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_gl03s")
+
+[node name="MuteButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 107.0
+offset_right = 265.0
+offset_bottom = 122.0
+mouse_default_cursor_shape = 2
+
+[node name="EasyButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 160.0
+offset_right = 256.0
+offset_bottom = 174.0
+mouse_default_cursor_shape = 2
+
+[node name="HardButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 193.5
+offset_right = 258.0
+offset_bottom = 208.5
+mouse_default_cursor_shape = 2
+
+[node name="MediumButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 176.5
+offset_right = 266.0
+offset_bottom = 191.5
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="MuteButton" to="." method="_on_mute_pressed"]
+[connection signal="pressed" from="EasyButton" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="HardButton" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MediumButton" to="." method="_on_medium_pressed"]

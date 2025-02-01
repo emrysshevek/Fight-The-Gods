@@ -35,6 +35,10 @@ hitbox=""
 environment=""
 entity=""
 
+[gui]
+
+theme/custom="res://main_theme.tres"
+
 [input]
 
 left={
