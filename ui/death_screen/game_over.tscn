@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dorfghihl5ny2" path="res://assets/graphics/Death screen/Selected_Main menu.png" id="6_d1hnn"]
 
 [node name="GameOver" type="Control"]
+process_mode = 3
 texture_filter = 3
 layout_mode = 3
 anchors_preset = 15

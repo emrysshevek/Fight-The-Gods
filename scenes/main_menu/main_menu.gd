@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	AudioMixer.play(theme, loop)
+	Engine.time_scale = 1
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/boss2_battle/boss2_battle.tscn")

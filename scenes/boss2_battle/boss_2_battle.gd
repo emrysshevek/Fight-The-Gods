@@ -16,37 +16,54 @@ func _ready() -> void:
 	camera.position = $CameraPositions/horizontal.position
 	boss.stomp.connect(_on_boss_stomp)
 	boss.slam.connect(_on_boss_slam)
-	player.died.connect(_on_player_died)
 	boss.died.connect(_on_boss_died)
+	player.damaged.connect(_on_player_damaged)
+	player.died.connect(_on_player_died)
 	AudioMixer.play(theme, loop)
+	Engine.time_scale = 1
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pause()
 
 func pause() -> void:
-	# get_tree().paused = true
 	$UILayer/Pause.open()
 
+func _on_player_damaged(which_entity: Entity) -> void:
+	var dmg_texture: TextureRect = $UILayer/DamageTexture
+	dmg_texture.self_modulate.a = 1
+	dmg_texture.show()
+	create_tween().tween_property(dmg_texture,'self_modulate:a', 0.0, 1)
+
 func _on_player_died(_which_entity: Entity) -> void:
-	# game_over.position.y += 956
-	$UILayer/LoseScreen.show()
+	var tween = create_tween().set_loops(1).set_trans(Tween.TRANS_CUBIC)
 
-	# var tweener: Tween = create_tween().set_parallel()
+	var screen = $UILayer/LoseScreen
+	screen.modulate.a = 0
+	screen.show()
 
-	# var screen_tween = tweener.tween_property(game_over, "position", Vector2.ZERO, 2)
-	# screen_tween.set_trans(Tween.TRANS_SPRING)
+	Engine.time_scale = .1
 
+	tween.tween_property(screen, "modulate:a", 1, .2).set_delay(1)
+	# tween.tween_property(Engine, "time_scale", 1, .75)
 
 func _on_boss_died(_which_entity: Entity) -> void:
-	$UILayer/WinScreen.show()
 	Globals.beat_game()
+	var tween = create_tween().set_loops(1).set_trans(Tween.TRANS_CUBIC)
+
+	var screen = $UILayer/WinScreen
+	screen.modulate.a = 0
+	screen.show()
+
+	Engine.time_scale = .1
+
+	tween.tween_property(screen, "modulate:a", 1, .2).set_delay(1)
+	# tween.tween_property(Engine, "time_scale", 1, .75)
 
 func _on_boss_stomp() -> void:
 	camera.set_camera_shake(.25)
 
 func _on_boss_slam(direction: int) -> void:
-	# print("Boss slammed stage...spin time!")
 	Globals.start_spin()
 
 	if stage_orientation == "horizontal":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpud61ltdmdtn"]
+[gd_scene load_steps=29 format=3 uid="uid://bpud61ltdmdtn"]
 
 [ext_resource type="PackedScene" uid="uid://bdhjwo31n8ocb" path="res://components/environment/floor.tscn" id="1_7e5nu"]
 [ext_resource type="Script" path="res://scenes/boss2_battle/boss_2_battle.gd" id="1_rp7ue"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bpgmteupokmud" path="res://scenes/boss2_battle/decorations/window_decorations.tscn" id="23_qyio3"]
 [ext_resource type="PackedScene" uid="uid://c5mik0m74fj8g" path="res://ui/pause/pause.tscn" id="24_8ts7d"]
 [ext_resource type="PackedScene" uid="uid://bxrqfcod5kwqo" path="res://ui/win_screen/win_screen.tscn" id="24_rp3hr"]
+[ext_resource type="Texture2D" uid="uid://cpt211vgenvxv" path="res://assets/graphics/Health bar/Dammage screen.png" id="26_arnj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgnj2"]
 size = Vector2(614.75, 73)
@@ -187,6 +188,13 @@ visible = false
 
 [node name="Pause" parent="UILayer" instance=ExtResource("24_8ts7d")]
 visible = false
+
+[node name="DamageTexture" type="TextureRect" parent="UILayer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("26_arnj5")
 
 [editable path="stage/Floor"]
 [editable path="stage/Floor2"]

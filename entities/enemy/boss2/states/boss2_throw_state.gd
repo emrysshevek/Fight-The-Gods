@@ -10,7 +10,8 @@ var throws := 0
 
 func enter(_previous_state_path: String, _data := {}) -> void:
     throws = 0
-    _initiate()
+    boss.ap.play("idle")
+    get_tree().create_timer(3 * (1 + Globals.difficulty_multiplier)).timeout.connect(_initiate)
 
 func _initiate() -> void:
     get_tree().create_timer(.475).timeout.connect(_throw)

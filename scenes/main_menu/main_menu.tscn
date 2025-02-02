@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0d3nmqg7s02x"]
+[gd_scene load_steps=13 format=3 uid="uid://d0d3nmqg7s02x"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_0jdi1"]
 [ext_resource type="Texture2D" uid="uid://dq7qvvidryroa" path="res://assets/graphics/Cliff blank.png" id="2_2aqw6"]
@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c2rflyy5cfmv" path="res://assets/graphics/Main title/Button_Credits.png" id="4_e4dql"]
 [ext_resource type="Script" path="res://ui/img_button.gd" id="4_kse0b"]
 [ext_resource type="Texture2D" uid="uid://berht32n2iukf" path="res://assets/graphics/Main title/Selected_Options.png" id="5_c4kyu"]
-[ext_resource type="Texture2D" uid="uid://by7tbgkmw6xkw" path="res://assets/graphics/Main title/Button_Bonus.png" id="5_u0q4t"]
 [ext_resource type="Texture2D" uid="uid://cn78n5i6ej6rg" path="res://assets/graphics/Main title/Selected_Credits.png" id="7_8ekn1"]
-[ext_resource type="Texture2D" uid="uid://dhe0ieipdk1md" path="res://assets/graphics/Main title/Selected_Bonus.png" id="9_fgsjr"]
 [ext_resource type="PackedScene" uid="uid://b3qhvm5eohoac" path="res://ui/options/options.tscn" id="11_bp2ne"]
 [ext_resource type="PackedScene" uid="uid://bpw27bhfg3wwp" path="res://ui/credits/credits.tscn" id="12_l11bk"]
 
@@ -80,15 +78,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/Main"]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 9.0
-offset_right = 184.0
-offset_bottom = 265.0
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 162.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 4
 
 [node name="PlayButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wvci5")
 texture_pressed = ExtResource("3_rhnsr")
@@ -117,16 +122,6 @@ texture_disabled = ExtResource("4_e4dql")
 texture_focused = ExtResource("7_8ekn1")
 script = ExtResource("4_kse0b")
 
-[node name="BonusButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_u0q4t")
-texture_pressed = ExtResource("9_fgsjr")
-texture_hover = ExtResource("9_fgsjr")
-texture_disabled = ExtResource("5_u0q4t")
-texture_focused = ExtResource("5_u0q4t")
-script = ExtResource("4_kse0b")
-
 [node name="Options" parent="UI/Control" instance=ExtResource("11_bp2ne")]
 visible = false
 layout_mode = 1
@@ -138,6 +133,3 @@ layout_mode = 1
 [connection signal="pressed" from="UI/Control/Main/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="UI/Control/Main/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="UI/Control/Main/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="mouse_entered" from="UI/Control/Main/VBoxContainer/BonusButton" to="." method="_on_bonus_button_mouse_entered"]
-[connection signal="mouse_exited" from="UI/Control/Main/VBoxContainer/BonusButton" to="." method="_on_bonus_button_mouse_exited"]
-[connection signal="pressed" from="UI/Control/Main/VBoxContainer/BonusButton" to="." method="_on_bonus_button_pressed"]
