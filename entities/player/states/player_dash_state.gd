@@ -12,6 +12,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
     player.moveable = false
     player.moving = false
     player.damageable = false
+    player.dashing = true
 
     dir = Input.get_axis("left", "right")
     if dir == 0:
@@ -34,6 +35,7 @@ func physics_update(delta: float) -> void:
     elapsed += delta
 
     if elapsed >= dash_duration:
+        player.dashing = false
         player.velocity.x = move_toward(player.velocity.x, player.max_speed * dir / 2, deceleration * delta)
     
 func _on_animation_finished(_anim_name: StringName) -> void:

@@ -5,6 +5,7 @@ extends Entity
 
 var moveable: bool = true
 var defense := 0.0
+var dashing := false
 
 @onready var i_timer: Timer = $InvincibilityTimer
 
@@ -20,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		):
 			flip()
 	
-	if Input.is_action_pressed("down"):
+	if dashing or Input.is_action_pressed("down"):
 		set_collision_mask_value(2, false)
 	else:
 		set_collision_mask_value(2, true)
