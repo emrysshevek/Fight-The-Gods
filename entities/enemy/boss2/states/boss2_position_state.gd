@@ -19,7 +19,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	direction = [-1, 1].pick_random()
 	if (direction == -1 and not boss.flipped) or (direction == 1 and boss.flipped):
 		boss.flip()
-		
+
 	elapsed = 0
 
 func exit() -> void:
@@ -29,7 +29,7 @@ func physics_update(delta: float) -> void:
 	elapsed += delta
 
 	print(boss.velocity)
-	if elapsed > 2 and boss.velocity.x == 0:
+	if elapsed > 1 and boss.velocity.x == 0:
 		print("boss reached target")
 		boss.flip()
 		finished.emit(THROW)

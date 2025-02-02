@@ -16,13 +16,19 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func _initiate() -> void:
     get_tree().create_timer(.475).timeout.connect(_throw)
     target = get_tree().get_first_node_in_group("player").global_position
-    var dir = target.x - boss.global_position.x
-    if dir < 0 and not boss.flipped:
-        boss.flip()
-    elif dir > 0 and boss.flipped:
-        boss.flip()
-
     target.y -= 50
+    
+    var start: Vector2 = boss.get_node("Markers/ThrowStart").global_position
+
+    var target_dir = start.direction_to(target)
+    var facing_dir = Vector2.LEFT if boss.flipped else Vector2.RIGHT
+    var rotation = facing_dir.angle_to(target_dir)
+    var throwing_dir = facing_dir.rotated(clamp(rotation, -PI/6, PI/6)).normalized()
+    print("target: ", target, ", start: ", start, ", target_dir: ", target_dir.normalized(), ", facing_dir: ", facing_dir, ", rotation: ", rad_to_deg(rotation))
+    target = start + throwing_dir * 10
+    print("throwing dir: ", throwing_dir, ", new target: ", target)
+
+
     boss.ap.play("throw")
 
 func _throw() -> void:
@@ -46,4 +52,3 @@ func _on_caught(_name: StringName) -> void:
 
     boss.ap.play("idle")
     get_tree().create_timer(3 * (1 + Globals.difficulty_multiplier)).timeout.connect(_initiate)
-

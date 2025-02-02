@@ -19,4 +19,4 @@ func exit() -> void:
 
 func _on_timer_timeout() -> void:
     print("idle timer finished")
-    finished.emit(POSIITON)
+    finished.emit(CHASE)
