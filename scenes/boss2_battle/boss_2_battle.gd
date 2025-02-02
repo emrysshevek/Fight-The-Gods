@@ -14,7 +14,7 @@ var stage_orientation = "horizontal"
 
 func _ready() -> void:
 	camera.position = $CameraPositions/horizontal.position
-	# boss.stomp.connect(_on_boss_stomp)
+	boss.stomp.connect(_on_boss_stomp)
 	boss.slam.connect(_on_boss_slam)
 	player.died.connect(_on_player_died)
 	boss.died.connect(_on_boss_died)
@@ -40,10 +40,10 @@ func _on_player_died(_which_entity: Entity) -> void:
 
 func _on_boss_died(_which_entity: Entity) -> void:
 	$UILayer/WinScreen.show()
+	Globals.beat_game()
 
-
-# func _on_boss_stomp() -> void:
-# 	camera.add_trauma(.65)
+func _on_boss_stomp() -> void:
+	camera.set_camera_shake(.25)
 
 func _on_boss_slam(direction: int) -> void:
 	# print("Boss slammed stage...spin time!")

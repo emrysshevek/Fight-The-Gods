@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2g1fvmqhnxrj"]
+[gd_scene load_steps=7 format=3 uid="uid://b2g1fvmqhnxrj"]
 
 [ext_resource type="Texture2D" uid="uid://llj3p0s5ak7t" path="res://assets/graphics/Health bar/Health bar_Background.png" id="1_j1pit"]
 [ext_resource type="PackedScene" uid="uid://8bqfo7mlqunf" path="res://ui/battle_hud/hp_bar.tscn" id="1_v38sv"]
-[ext_resource type="PackedScene" uid="uid://d14kvwjnfk3ms" path="res://ui/battle_hud/boss_hp_bar.tscn" id="3_3iitb"]
+[ext_resource type="Texture2D" uid="uid://b5a11fxsmyyb5" path="res://assets/graphics/Health bar/Boss 2/Background.png" id="3_lu7j6"]
+[ext_resource type="Texture2D" uid="uid://ebnlc3k84ux1" path="res://assets/graphics/Health bar/Boss 2/Foreground.png" id="4_cao3v"]
+[ext_resource type="Texture2D" uid="uid://d3nnj5cos4a60" path="res://assets/graphics/Health bar/Boss 2/Health bar.png" id="5_pcd6t"]
+[ext_resource type="Script" path="res://ui/battle_hud/boss_hp_bar.gd" id="6_w8tk3"]
 
 [node name="BattleHud" type="Control"]
+texture_filter = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,10 +24,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
@@ -35,6 +39,11 @@ texture = ExtResource("1_j1pit")
 [node name="HpBar" parent="MarginContainer" instance=ExtResource("1_v38sv")]
 layout_mode = 2
 
-[node name="BossHpBar" parent="MarginContainer" instance=ExtResource("3_3iitb")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
+texture_under = ExtResource("3_lu7j6")
+texture_over = ExtResource("4_cao3v")
+texture_progress = ExtResource("5_pcd6t")
+script = ExtResource("6_w8tk3")
