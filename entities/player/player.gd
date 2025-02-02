@@ -41,8 +41,10 @@ func handle_player_movement(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction * max_speed, ground_acceleration * MOVE_SNAP * delta)
 
 func take_damage(damage: float, _type=null) -> float:
+	damage = 1 - defense
 	print("Player taking damage: ", damage, ". remaining health: ", health)
-	damage = super.take_damage(1)
+
+	damage = super.take_damage(damage)
 	if damage > 0:
 		start_hit_cooldown()
 	return damage
