@@ -30,3 +30,27 @@ func _on_bonus_button_mouse_entered() -> void:
 func _on_animation_finished(name: StringName) -> void:
 	if name == "transition":
 		get_tree().change_scene_to_file("res://scenes/boss2_battle/boss2_battle.tscn")
+
+
+func _on_play_button_mouse_entered() -> void:
+	$UI/Control/Main/PlayButton/PlaySelected.show()
+
+
+func _on_play_button_mouse_exited() -> void:
+	$UI/Control/Main/PlayButton/PlaySelected.hide()
+
+
+func _on_options_button_mouse_entered() -> void:
+	$UI/Control/Main/OptionsButton/OptionsSelected.show()
+
+
+func _on_options_button_mouse_exited() -> void:
+	$UI/Control/Main/OptionsButton/OptionsSelected.hide()
+
+
+func _on_credits_button_mouse_entered() -> void:
+	$UI/Control/Main/CreditsButton/CreditsSelected.show()
+
+
+func _on_credits_button_mouse_exited() -> void:
+	$UI/Control/Main/CreditsButton/CreditsSelected.hide()

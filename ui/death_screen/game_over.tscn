@@ -57,21 +57,35 @@ grow_vertical = 0
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_efcww")
-texture_pressed = ExtResource("4_n7j8b")
-texture_hover = ExtResource("4_n7j8b")
+texture_pressed = ExtResource("2_efcww")
+texture_hover = ExtResource("2_efcww")
 texture_disabled = ExtResource("2_efcww")
-texture_focused = ExtResource("4_n7j8b")
+texture_focused = ExtResource("2_efcww")
 script = ExtResource("5_8772l")
+
+[node name="RetrySelected" type="TextureRect" parent="HBoxContainer/RetryButton"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_n7j8b")
 
 [node name="QuitButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_xt485")
-texture_pressed = ExtResource("6_d1hnn")
-texture_hover = ExtResource("6_d1hnn")
+texture_pressed = ExtResource("3_xt485")
+texture_hover = ExtResource("3_xt485")
 texture_disabled = ExtResource("3_xt485")
-texture_focused = ExtResource("6_d1hnn")
+texture_focused = ExtResource("3_xt485")
 script = ExtResource("5_8772l")
+
+[node name="QuitSelected" type="TextureRect" parent="HBoxContainer/QuitButton"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_d1hnn")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
@@ -85,5 +99,9 @@ offset_bottom = 121.0
 grow_horizontal = 2
 texture = ExtResource("5_gtibb")
 
+[connection signal="mouse_entered" from="HBoxContainer/RetryButton" to="." method="_on_retry_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/RetryButton" to="." method="_on_retry_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

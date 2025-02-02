@@ -2213,6 +2213,7 @@ texture_filter = 3
 material = SubResource("ShaderMaterial_gyp3e")
 sprite_frames = SubResource("SpriteFrames_4st1n")
 animation = &"throw"
+frame = 1
 offset = Vector2(26, -104)
 metadata/_edit_lock_ = true
 

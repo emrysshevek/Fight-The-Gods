@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxrqfcod5kwqo"]
+[gd_scene load_steps=8 format=3 uid="uid://bxrqfcod5kwqo"]
 
 [ext_resource type="Texture2D" uid="uid://ch8n51i62f7mu" path="res://assets/graphics/Win screen/Victory.png" id="1_q5cmu"]
 [ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="1_qw2pk"]
 [ext_resource type="Texture2D" uid="uid://c7tysf1kwwaas" path="res://assets/graphics/Death screen/Button_Retry.png" id="2_c0o10"]
 [ext_resource type="Texture2D" uid="uid://biqh6o642y1vd" path="res://assets/graphics/Death screen/Selected_Retry.png" id="3_c7lw8"]
 [ext_resource type="Texture2D" uid="uid://l5v6nb17g3va" path="res://assets/graphics/Death screen/Button_Main menu.png" id="4_e3gdf"]
+[ext_resource type="Script" path="res://ui/img_button.gd" id="4_gaaor"]
 [ext_resource type="Texture2D" uid="uid://dorfghihl5ny2" path="res://assets/graphics/Death screen/Selected_Main menu.png" id="5_rid0j"]
 
 [node name="WinScreen" type="Control"]
@@ -57,21 +58,41 @@ grow_vertical = 0
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_c0o10")
-texture_pressed = ExtResource("3_c7lw8")
-texture_hover = ExtResource("3_c7lw8")
+texture_pressed = ExtResource("2_c0o10")
+texture_hover = ExtResource("2_c0o10")
 texture_disabled = ExtResource("2_c0o10")
 texture_focused = ExtResource("2_c0o10")
+script = ExtResource("4_gaaor")
 metadata/_edit_lock_ = true
+
+[node name="RetrySelected" type="TextureRect" parent="HBoxContainer/Retry"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_c7lw8")
 
 [node name="MainMenu" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_e3gdf")
-texture_pressed = ExtResource("5_rid0j")
-texture_hover = ExtResource("5_rid0j")
+texture_pressed = ExtResource("4_e3gdf")
+texture_hover = ExtResource("4_e3gdf")
 texture_disabled = ExtResource("4_e3gdf")
 texture_focused = ExtResource("4_e3gdf")
+script = ExtResource("4_gaaor")
 metadata/_edit_lock_ = true
 
+[node name="QuitSelected" type="TextureRect" parent="HBoxContainer/MainMenu"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_rid0j")
+
+[connection signal="mouse_entered" from="HBoxContainer/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Retry" to="." method="_on_retry_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
