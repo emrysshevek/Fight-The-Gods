@@ -3,7 +3,7 @@ extends TextureButton
 
 var elapsed := 0.0
 var a := 4
-var f := .4
+var f := .4 + randf_range(-.05, .05)
 var p := randf_range(0, 2 * PI)
 
 var base_position: Vector2

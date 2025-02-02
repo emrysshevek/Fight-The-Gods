@@ -6,11 +6,13 @@ func _ready() -> void:
 	mute(Globals.settings["mute"])
 
 func play(track: AudioStream, loop: AudioStream = null) -> void:
+	player1.stop()
+
 	player1.stream = track
 	player1.play()
 
 	if loop:
-		get_tree().create_timer(player1.stream.get_length()).timeout.connect(func(): play(loop))
+		player1.finished.connect(func(): play(loop))
 
 func mute(toggled:=true) -> void:
 	Globals.settings["mute"] = toggled

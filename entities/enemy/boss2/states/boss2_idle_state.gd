@@ -22,5 +22,6 @@ func _on_timer_timeout() -> void:
     print("idle timer finished")
     if first_round:
         finished.emit(POSIITON)
+        first_round = false
     else:
         finished.emit(CHASE)
