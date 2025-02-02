@@ -16,7 +16,7 @@
 
 [sub_resource type="Animation" id="Animation_cp8uh"]
 resource_name = "startup"
-length = 15.0
+length = 9.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,6 +100,48 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("UI/Control/Main/PlayButton")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("UI/Control/Main/OptionsButton")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(4.03333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("UI/Control/Main/CreditsButton")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_djiu1"]
@@ -362,9 +404,9 @@ metadata/_edit_lock_ = true
 [node name="PlayButton" type="TextureButton" parent="UI/Control/Main"]
 layout_mode = 2
 offset_left = 6.0
-offset_top = 270.0
+offset_top = 200.0
 offset_right = 168.0
-offset_bottom = 341.0
+offset_bottom = 271.0
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wvci5")
@@ -377,9 +419,9 @@ script = ExtResource("4_kse0b")
 [node name="OptionsButton" type="TextureButton" parent="UI/Control/Main"]
 layout_mode = 2
 offset_left = 163.0
-offset_top = 270.0
+offset_top = 200.0
 offset_right = 318.0
-offset_bottom = 336.0
+offset_bottom = 266.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_b73ym")
 texture_pressed = ExtResource("5_c4kyu")
@@ -391,9 +433,9 @@ script = ExtResource("4_kse0b")
 [node name="CreditsButton" type="TextureButton" parent="UI/Control/Main"]
 layout_mode = 2
 offset_left = 318.0
-offset_top = 270.0
+offset_top = 200.0
 offset_right = 473.0
-offset_bottom = 336.0
+offset_bottom = 266.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_e4dql")
 texture_pressed = ExtResource("7_8ekn1")
@@ -413,10 +455,8 @@ grow_vertical = 0
 
 [node name="Control" type="Control" parent="UI/Control/Main"]
 anchors_preset = 0
-offset_left = -15.0
-offset_top = -240.0
-offset_right = 25.0
-offset_bottom = -200.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="TextureRect3" type="TextureRect" parent="UI/Control/Main/Control"]
 modulate = Color(0.146211, 0.0420141, 0.407801, 1)
