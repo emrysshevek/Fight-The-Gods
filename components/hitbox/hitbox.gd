@@ -13,7 +13,7 @@ func _physics_process(_delta: float) -> void:
 			hit.emit(self, target)
 
 func _on_area_entered(area:Area2D) -> void:
-	print("area entered hurtbox: ", area)
+	# print("area entered hurtbox: ", area)
 	if area.is_in_group("hurtbox") and area not in targets:
 		targets.append(area as Hurtbox)
 		target_entered.emit(self, area as Hurtbox)

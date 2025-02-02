@@ -40,7 +40,6 @@ func end() -> void:
 func _physics_process(delta: float) -> void:
 	if not active:
 		return		
-
 	global_position += direction * speed * delta
 
 func _on_halfway_timer_timeout() -> void:

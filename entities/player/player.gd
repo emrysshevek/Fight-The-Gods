@@ -9,6 +9,9 @@ var dashing := false
 
 @onready var i_timer: Timer = $InvincibilityTimer
 
+func _ready() -> void:
+	flip()
+
 func _physics_process(delta: float) -> void:
 	if moveable:
 		handle_player_movement(delta)
@@ -51,6 +54,7 @@ func take_damage(damage: float, _type=null) -> float:
 	return damage
 
 func start_hit_cooldown() -> void:
+	
 	damageable = false
 	sprite.start_flash()
 	i_timer.start()

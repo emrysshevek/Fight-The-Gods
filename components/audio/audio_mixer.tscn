@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://5h8lk1orka5f"]
+[gd_scene load_steps=3 format=3 uid="uid://5h8lk1orka5f"]
 
 [ext_resource type="Script" path="res://components/audio/audio_mixer.gd" id="1_8se5l"]
+[ext_resource type="AudioStream" uid="uid://bjof86mimb4pn" path="res://assets/music/Main Menu/MainMenu_Mix-07_Final.wav" id="2_6fxaw"]
 
 [node name="AudioMixer" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_8se5l")
 
 [node name="Player1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6fxaw")
+volume_db = -16.288
 
 [node name="Player2" type="AudioStreamPlayer" parent="."]

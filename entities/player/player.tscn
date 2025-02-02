@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cgwvfontvx4ti" path="res://entities/entity.tscn" id="1_56s1m"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_bjjw0"]
-[ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="3_1dxam"]
+[ext_resource type="Shader" path="res://shaders/drop_shadow.gdshader" id="3_2fmpx"]
 [ext_resource type="Script" path="res://entities/player/states/player_idle_state.gd" id="4_0e5dw"]
 [ext_resource type="Script" path="res://entities/player/states/player_init_state.gd" id="4_5qng1"]
 [ext_resource type="Script" path="res://entities/entity_state_machine.gd" id="4_mfse3"]
@@ -19,7 +19,9 @@
 [ext_resource type="Script" path="res://components/hitbox/hitbox.gd" id="16_3avla"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgloj"]
-shader = ExtResource("3_1dxam")
+shader = ExtResource("3_2fmpx")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.701961)
+shader_parameter/shadow_offset = Vector2(0.01, 0.01)
 shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx4et"]

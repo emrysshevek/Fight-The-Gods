@@ -25,7 +25,8 @@ func exit() -> void:
     
 func physics_update(delta: float) -> void:
     elapsed += delta
-    if elapsed >= parry_duration:
+
+    if elapsed >= parry_duration * (1 + Globals.difficulty_multiplier):
         player.defense = 0
 
     if not Input.is_action_pressed("crouch"):

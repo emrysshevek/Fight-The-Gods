@@ -32,9 +32,9 @@ func physics_update(delta: float) -> void:
 	var player = get_tree().get_first_node_in_group("player")
 
 	if walking:
-		timer.stop()
+		timer.stop()		
 		
-		if abs(boss.global_position.x - player.global_position.x) < 50:
+		if  abs(boss.global_position.x - player.global_position.x) < 50:
 			_switch_action()
 			return
 
@@ -52,6 +52,7 @@ func _switch_action() -> void:
 		boss.ap.speed_scale = .5
 		timer.start()
 	else:
+		var total_swings = 2 * (1 - Globals.difficulty_multiplier)
 		walking = false
 		boss.ap.play("idle")
 		boss.ap.speed_scale = 1
@@ -62,7 +63,7 @@ func _switch_action() -> void:
 		var direction = sign(get_tree().get_first_node_in_group("player").global_position.x - boss.global_position.x)
 		if (direction == -1 and not boss.flipped) or (direction == 1 and boss.flipped):
 			boss.flip()
-		for i in range(2):
+		for i in range(total_swings - 1):
 			boss.ap.queue("simple_attack")
 		boss.ap.queue("walk")
 

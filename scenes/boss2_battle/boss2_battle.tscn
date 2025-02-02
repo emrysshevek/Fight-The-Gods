@@ -162,7 +162,6 @@ position = Vector2(-105, 136)
 left_target = NodePath("../Markers/Left")
 middle_target = NodePath("../Markers/Middle")
 right_target = NodePath("../Markers/Right")
-max_health = 1.0
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, 90)

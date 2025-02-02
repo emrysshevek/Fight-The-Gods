@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dw8cre84bhld8" path="res://entities/enemy/enemy.tscn" id="1_aipxn"]
 [ext_resource type="Script" path="res://entities/enemy/boss2/boss_2.gd" id="2_518wb"]
-[ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="3_67h3d"]
+[ext_resource type="Shader" path="res://shaders/drop_shadow.gdshader" id="3_xdt6k"]
 [ext_resource type="Texture2D" uid="uid://bt833somdombf" path="res://assets/graphics/boss2/Death/tile000.png" id="4_2iny3"]
 [ext_resource type="Texture2D" uid="uid://buycuaa51r6nt" path="res://assets/graphics/boss2/Attacks/tile024.png" id="4_8u0vs"]
 [ext_resource type="Texture2D" uid="uid://bi764q87xtkjh" path="res://assets/graphics/boss2/Idle/tile000.png" id="4_leys8"]
@@ -282,7 +282,9 @@
 [ext_resource type="Script" path="res://entities/enemy/boss2/states/boss2_die_state.gd" id="280_koicr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gyp3e"]
-shader = ExtResource("3_67h3d")
+shader = ExtResource("3_xdt6k")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.67451)
+shader_parameter/shadow_offset = Vector2(0.01, 0.01)
 shader_parameter/active = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4st1n"]
@@ -2196,10 +2198,11 @@ script = ExtResource("2_518wb")
 max_speed = 100.0
 ground_acceleration = 1500.0
 ground_friction = 1000.0
-max_health = 500.0
+max_health = 1000.0
 i_duration = 0.1
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
+visible = false
 offset_left = -40.0
 offset_top = -144.0
 offset_right = 40.0

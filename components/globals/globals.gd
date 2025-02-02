@@ -6,16 +6,27 @@ signal spin_ended()
 @export var game_won := false
 @export var settings: Dictionary = {
 	"mute": false,
-	"difficulty": "hard"
+	"difficulty": "medium"
 }
 
 var spinning = false
+var difficulty_multiplier := 0.0
 
 func _ready() -> void:
 	var game_status = load_from_file()
 	if game_status != null and game_status == "won":
 		game_won = true
 	print(game_won)
+
+func set_difficulty(difficulty: String) -> void:
+	match difficulty:
+		"easy":
+			difficulty_multiplier = .5
+		"medium":
+			difficulty_multiplier = 0
+		"hard":
+			difficulty_multiplier = -.5
+	settings["difficulty"] = difficulty
 
 func start_spin() -> void:
 	spinning = true

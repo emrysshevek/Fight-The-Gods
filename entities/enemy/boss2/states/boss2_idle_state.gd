@@ -5,7 +5,7 @@ extends Boss2State
 
 func _ready() -> void:
     super._ready()
-    timer.wait_time = 3
+    timer.wait_time = 4 * (1 + Globals.difficulty_multiplier)
     timer.one_shot = true
     timer.timeout.connect(_on_timer_timeout)
     add_child(timer)

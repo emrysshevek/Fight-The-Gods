@@ -44,5 +44,5 @@ func _on_caught(_name: StringName) -> void:
         return
 
     boss.ap.play("idle")
-    get_tree().create_timer(2).timeout.connect(_initiate)
+    get_tree().create_timer(3 * (1 + Globals.difficulty_multiplier)).timeout.connect(_initiate)
 
