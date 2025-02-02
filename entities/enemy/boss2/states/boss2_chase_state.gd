@@ -24,6 +24,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 func exit() -> void:
 	boss.ap.animation_changed.disconnect(_on_animation_changed)
+	boss.ap.clear_queue()
 	timer.timeout.disconnect(_switch_action)
 
 func physics_update(delta: float) -> void:
