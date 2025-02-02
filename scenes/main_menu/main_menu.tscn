@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0d3nmqg7s02x"]
+[gd_scene load_steps=14 format=3 uid="uid://d0d3nmqg7s02x"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_0jdi1"]
 [ext_resource type="Texture2D" uid="uid://dq7qvvidryroa" path="res://assets/graphics/Cliff blank.png" id="2_2aqw6"]
@@ -12,16 +12,19 @@
 [ext_resource type="Texture2D" uid="uid://cn78n5i6ej6rg" path="res://assets/graphics/Main title/Selected_Credits.png" id="7_8ekn1"]
 [ext_resource type="PackedScene" uid="uid://b3qhvm5eohoac" path="res://ui/options/options.tscn" id="11_bp2ne"]
 [ext_resource type="PackedScene" uid="uid://bpw27bhfg3wwp" path="res://ui/credits/credits.tscn" id="12_l11bk"]
+[ext_resource type="Texture2D" uid="uid://c6ocslkn8q028" path="res://assets/graphics/Main title/Main art.png" id="13_kmq5e"]
 
 [node name="MainMenu" type="Node2D"]
 texture_filter = 3
 script = ExtResource("1_0jdi1")
+metadata/_edit_vertical_guides_ = [240.0]
 
 [node name="Title" type="CanvasLayer" parent="."]
 layer = -5
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -5
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
 anchors_preset = 15
@@ -73,26 +76,39 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="Main" type="Control" parent="UI/Control"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/Main"]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 43.0
-offset_right = 162.0
-offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 4
+metadata/_edit_lock_ = true
 
-[node name="PlayButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/Control/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_kmq5e")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UI/Control/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.482353)
+
+[node name="PlayButton" type="TextureButton" parent="UI/Control/Main"]
 layout_mode = 2
+offset_left = 6.0
+offset_top = 200.0
+offset_right = 168.0
+offset_bottom = 271.0
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_wvci5")
@@ -100,10 +116,15 @@ texture_pressed = ExtResource("3_rhnsr")
 texture_hover = ExtResource("3_rhnsr")
 texture_disabled = ExtResource("2_wvci5")
 texture_focused = ExtResource("3_rhnsr")
+ignore_texture_size = true
 script = ExtResource("4_kse0b")
 
-[node name="OptionsButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="UI/Control/Main"]
 layout_mode = 2
+offset_left = 163.0
+offset_top = 200.0
+offset_right = 318.0
+offset_bottom = 266.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_b73ym")
 texture_pressed = ExtResource("5_c4kyu")
@@ -112,8 +133,12 @@ texture_disabled = ExtResource("3_b73ym")
 texture_focused = ExtResource("5_c4kyu")
 script = ExtResource("4_kse0b")
 
-[node name="CreditsButton" type="TextureButton" parent="UI/Control/Main/VBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="UI/Control/Main"]
 layout_mode = 2
+offset_left = 318.0
+offset_top = 200.0
+offset_right = 473.0
+offset_bottom = 266.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_e4dql")
 texture_pressed = ExtResource("7_8ekn1")
@@ -121,6 +146,32 @@ texture_hover = ExtResource("7_8ekn1")
 texture_disabled = ExtResource("4_e4dql")
 texture_focused = ExtResource("7_8ekn1")
 script = ExtResource("4_kse0b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/Main"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Control/Main"]
+modulate = Color(0.146211, 0.0420141, 0.407801, 1)
+layout_mode = 0
+offset_left = 149.0
+offset_top = 10.0
+offset_right = 379.0
+offset_bottom = 197.0
+texture = ExtResource("3_8o2a7")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Control/Main"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 8.0
+offset_right = 377.0
+offset_bottom = 195.0
+texture = ExtResource("3_8o2a7")
 
 [node name="Options" parent="UI/Control" instance=ExtResource("11_bp2ne")]
 visible = false
@@ -130,6 +181,6 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="UI/Control/Main/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/Control/Main/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="UI/Control/Main/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="UI/Control/Main/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Control/Main/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="UI/Control/Main/CreditsButton" to="." method="_on_credits_button_pressed"]

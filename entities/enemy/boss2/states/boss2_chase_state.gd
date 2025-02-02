@@ -2,7 +2,7 @@ class_name Boss2ChaseState
 extends Boss2State
 
 @export var walK_max_duration := 2.0
-@export var total_duration := 10.0
+@export var total_duration := 5.0
 
 var walking := true
 var elapsed := 0.0
@@ -48,6 +48,10 @@ func physics_update(delta: float) -> void:
 
 func _switch_action() -> void:
 	if not walking:
+		boss.ap.play("idle")
+		boss.ap.speed_scale = 1
+		boss.velocity = Vector2.ZERO
+		await get_tree().create_timer(1.5).timeout
 		walking = true
 		boss.ap.play("walk")
 		boss.ap.speed_scale = .5

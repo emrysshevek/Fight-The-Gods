@@ -1545,7 +1545,7 @@ tracks/3/path = NodePath("WaveAttack")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 0.325),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -1562,7 +1562,7 @@ tracks/4/path = NodePath("WaveAttack/Hitbox:monitoring")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 0.325),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -1574,7 +1574,7 @@ tracks/5/path = NodePath("WaveAttack/Hitbox:monitorable")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.7),
+"times": PackedFloat32Array(0, 0.325),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -1586,10 +1586,10 @@ tracks/6/path = NodePath("WaveAttack/Hitbox/CollisionShape2D:shape:size")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.55, 0.575),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(82, 98), Vector2(78.2727, 93.5455), Vector2(93.2727, 100.545), Vector2(93.2727, 100.545), Vector2(118.636, 100.545), Vector2(118.636, 100.545), Vector2(118.636, 100.545), Vector2(118.636, 100.545), Vector2(118.636, 100.545), Vector2(107.318, 82.2727), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(82, 98), Vector2(78.2727, 93.5455), Vector2(93.2727, 100.545), Vector2(93.2727, 100.545), Vector2(118.636, 100.545), Vector2(118.636, 100.545), Vector2(118.636, 100.545), Vector2(0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1598,10 +1598,10 @@ tracks/7/path = NodePath("WaveAttack/Hitbox/CollisionShape2D:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.55, 0.575),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(31, -177), Vector2(56, -168), Vector2(80, -152), Vector2(96, -136), Vector2(91.3182, -120), Vector2(96, -96), Vector2(96, -72), Vector2(96, -48), Vector2(88, -32), Vector2(90.3409, -65.1364), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(31, -177), Vector2(56, -168), Vector2(80, -152), Vector2(96, -136), Vector2(91.3182, -120), Vector2(96, -96), Vector2(96, -72), Vector2(0, 0)]
 }
 tracks/8/type = "method"
 tracks/8/imported = false
@@ -2213,7 +2213,6 @@ texture_filter = 3
 material = SubResource("ShaderMaterial_gyp3e")
 sprite_frames = SubResource("SpriteFrames_4st1n")
 animation = &"throw"
-frame = 1
 offset = Vector2(26, -104)
 metadata/_edit_lock_ = true
 

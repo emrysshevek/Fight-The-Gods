@@ -2,6 +2,7 @@ class_name Boss2IdleState
 extends Boss2State
 
 @onready var timer: Timer = Timer.new()
+@onready var first_round = true
 
 func _ready() -> void:
     super._ready()
@@ -19,4 +20,7 @@ func exit() -> void:
 
 func _on_timer_timeout() -> void:
     print("idle timer finished")
-    finished.emit(CHASE)
+    if first_round:
+        finished.emit(POSIITON)
+    else:
+        finished.emit(CHASE)

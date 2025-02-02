@@ -3,7 +3,7 @@ extends Boss2State
 
 @export var duration := 4.0
 @export var speed := 300.0
-@export var max_throws := 5
+@export var max_throws := 3
 
 var target: Vector2
 var throws := 0
